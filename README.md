@@ -1,2 +1,2 @@
-# SHACL-SPARQL-Benchmark
-SHACL-SPARQL Benchmark
+# ERA-SHACL-Benchmark
+ERA-SHACL Benchmark
