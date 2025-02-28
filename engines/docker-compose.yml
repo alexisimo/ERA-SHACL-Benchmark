@@ -1,0 +1,50 @@
+services:
+  pyshacl:
+    container_name: pyshacl-validation-experiment
+    image: pyshacl-validation-experiment:v0.1
+    volumes:
+      - ../data:/data
+      - ../shapes:/shapes
+      - ../reports/pyshacl:/reports  
+      - ../results/pyshacl:/results
+  maplib:
+    container_name: maplib-validation-experiment
+    image: maplib-validation-experiment:v0.1
+    volumes:
+      - ../data:/data
+      - ../shapes:/shapes
+      - ../reports/maplib:/reports  
+      - ../results/maplib:/results  
+  jena:
+    container_name: jena-validation-experiment
+    image: jena-validation-experiment:v0.1
+    volumes:
+      - ../data:/data
+      - ../shapes:/shapes
+      - ../reports/jena:/reports  
+      - ../results/jena:/results
+  rdf4j:
+    container_name: rdf4j-validation-experiment
+    image: rdf4j-validation-experiment:v0.1
+    volumes:
+      - ../data:/data
+      - ../shapes:/shapes
+      - ../reports/rdf4j:/reports  
+      - ../results/rdf4j:/results
+  topbraid:
+    container_name: topbraid-validation-experiment
+    image: topbraid-validation-experiment:v0.1
+    volumes:
+      - ../data:/data
+      - ../shapes:/shapes
+      - ../reports/topbraid:/reports  
+      - ../results/topbraid:/results
+  corese:
+    container_name: corese-validation-experiment
+    image: corese-validation-experiment:v0.1
+    volumes:
+      - ../data:/data
+      - ../shapes:/shapes
+      - ../reports/corese:/reports  
+      - ../results/corese:/results
+            

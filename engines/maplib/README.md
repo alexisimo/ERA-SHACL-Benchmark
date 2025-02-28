@@ -1,0 +1,1 @@
+docker build -t maplib-validation-experiment:v0.1 .
