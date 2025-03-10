@@ -24,14 +24,14 @@ def pyshacl_validate(DATA, SHAPES, REPORT):
     with open(DATA, "r", encoding="utf-8") as file:
         g.parse(data=file.read())
     load_tictoc = time.time() - load_tic
-    print(f"Number of data statements parsed: {len(g)}")
-    print(f"Load elapsed time: {load_tictoc}")
+    print(f"Data graph size: {len(g)}")
+    print(f"Estimated load time: {load_tictoc}")
 
     # Parse shacl shapes to rdflib graph 
     sg = rdflib.Graph()
     with open(SHAPES, "r") as file:
         sg.parse(data=file.read())
-    print(f"Number of shapes statements parsed: {len(sg)}")
+    print(f"Shapes graph size: {len(sg)}")
 
     # SHACL validation block
     # Measuring the validation time
@@ -42,6 +42,6 @@ def pyshacl_validate(DATA, SHAPES, REPORT):
 
     # Generate report
     vres_graph.serialize(format="turtle", destination=REPORT)
-    print(f"Validation elapsed time: {tictoc}")
+    print(f"Estimated validation time: {tictoc}")
 
 pyshacl_validate(args.data, args.shapes, args.report)

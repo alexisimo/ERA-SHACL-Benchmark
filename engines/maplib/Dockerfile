@@ -27,5 +27,8 @@ COPY . .
 # Make shell script executable
 RUN chmod +x run.sh
 
-# Command to run the cli experiment
+# Command to run the cli experiment 
 ENTRYPOINT ["./run.sh"]
+
+# Command to run the cli application
+# ENTRYPOINT ["puthon", "validate.py"]

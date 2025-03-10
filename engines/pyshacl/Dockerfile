@@ -26,3 +26,5 @@ RUN chmod +x run.sh
 # Command to run the cli experiment
 ENTRYPOINT ["./run.sh"]
 
+# Command to run the cli application
+# ENTRYPOINT ["python", "validate.py"]

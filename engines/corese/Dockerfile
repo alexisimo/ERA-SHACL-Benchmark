@@ -19,5 +19,8 @@ RUN mvn clean compile assembly:single
 # Make shell script executable
 RUN chmod +x run.sh
 
-# Command to run the cli application
+# Command to run the cli application for benchmarking
 ENTRYPOINT ["./run.sh"]
+
+# Command to run the compiled JAR
+# ENTRYPOINT ["java","-jar", "target/validator-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]

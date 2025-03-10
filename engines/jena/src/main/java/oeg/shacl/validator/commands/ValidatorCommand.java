@@ -37,7 +37,7 @@ public class ValidatorCommand implements Runnable {
 	
 	@Override
 	public void run() {
-		System.out.println("Data: " + data + "\nShapes: " + shapes + "\nReport: " + report);
+		// System.out.println("Data: " + data + "\nShapes: " + shapes + "\nReport: " + report);
 		try {
 			JenaValidator.validate(data, shapes, report);
 		} catch (IOException e) {

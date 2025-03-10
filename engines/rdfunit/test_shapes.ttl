@@ -1,0 +1,93 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix d: <http://nobel.org/data#> .
+@prefix o: <http://nobel.org/ont#> .
+@prefix v: <http://nobel.org/val#> .
+
+v:NobelPrizePhysicsShape a sh:NodeShape ;
+        sh:targetClass o:NobelPrizePhysics ;
+        sh:property [
+            sh:path o:year ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:datatype xsd:gYear ;
+        ];
+        sh:property [
+            sh:path o:winner ;
+            sh:maxCount 3 ;
+            sh:minCount 1 ;
+            sh:class o:Person ;
+            sh:nodeKind sh:IRI ;
+        ] ;
+        sh:property [
+            sh:path o:next ;
+            sh:maxCount 1 ;
+            sh:class o:NobelPrizePhysics ;
+            sh:nodeKind sh:IRI ;
+        ] ;
+        sh:closed true ;
+        sh:ignoredProperties
+        ( o:name o:next o:number o:prev o:winners rdf:type ) .
+
+v:PersonShape rdf:type sh:NodeShape ;
+        sh:targetClass o:Person ;
+        sh:property [
+            sh:path o:name ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:datatype xsd:string ;
+            # sh:minLength 1 ; # Not supported by rdf4j
+        ] .
+
+v:WinnersObjectShape a sh:NodeShape ;
+sh:targetObjectsOf o:winners ;
+sh:maxInclusive 2 ;
+sh:minInclusive 1 .
+
+v:HasOneYear a sh:NodeShape ;
+sh:targetClass o:NobelPrize ;
+sh:sparql [
+a sh:SPARQLConstraint ;
+# sh:prefixes o: , xsd: , d: ;
+sh:select """
+PREFIX o: <http://nobel.org/ont#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT $this (o:year AS ?path) ?value {
+$this o:year ?value , ?value2 .
+FILTER(?value != ?value2 || !isLiteral(?value)
+|| datatype(?value) != xsd:gYear)
+}
+"""
+] .
+
+v:HasMaxMinDatatypeValueComponent a sh:ConstraintComponent ;
+sh:parameter [
+sh:path v:dt
+] ;
+sh:parameter [
+sh:path v:min ;
+sh:optional true
+] ;
+sh:parameter [
+sh:path v:max ;
+sh:optional true
+] ;
+sh:propertyValidator v:HasMaxMinDatatypeSelectValidator .
+
+v:HasMaxMinDatatypeSelectValidator a sh:SPARQLSelectValidator ;
+sh:select """
+SELECT DISTINCT $this ?value
+WHERE {
+$this $PATH ?value
+FILTER (!isLiteral(?value) || datatype(?value) != $dt
+|| coalesce(?value < $min,false)
+|| coalesce(?value > $max,false) )
+}
+""" .
+
+v:HasPositiveNumber a sh:PropertyShape ;
+sh:targetClass o:NobelPrizePhysics ;
+sh:path o:number ;
+v:dt xsd:double ;
+v:min 2 .

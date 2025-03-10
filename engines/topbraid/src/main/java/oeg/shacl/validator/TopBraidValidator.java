@@ -42,7 +42,7 @@ public class TopBraidValidator {
       long estimatedTime = System.nanoTime() - startTime;
 		System.out.println("Report graph size: " + report.getModel().size() );
 
-      System.out.println("Estimated time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
+      System.out.println("Estimated validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
 
       try {
           File file = new File(REPORT);

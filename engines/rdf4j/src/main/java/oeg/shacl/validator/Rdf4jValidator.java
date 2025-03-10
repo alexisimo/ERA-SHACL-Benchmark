@@ -57,33 +57,32 @@ public class Rdf4jValidator {
             	System.out.println("Shapes graph size: "+statementsCollector.size());
             } 
 
+            Model validationReportModel = new LinkedHashModel();
             long startTime = System.nanoTime();
             try {
                 connection.commit();
             } catch (RepositoryException exception) {
                 Throwable cause = exception.getCause();
                 if (cause instanceof ValidationException) {
-                    Model validationReportModel = ((ValidationException) cause).validationReportAsModel();
-            
-                    long wstartTime = System.nanoTime();
-                    WriterConfig writerConfig = new WriterConfig()
-                        .set(BasicWriterSettings.INLINE_BLANK_NODES, true)
-                        .set(BasicWriterSettings.XSD_STRING_TO_PLAIN_LITERAL, true)
-                        .set(BasicWriterSettings.PRETTY_PRINT, true);
-                	System.out.println("Report graph size: "+validationReportModel.size());                    
-                    
-                    File reportFile = new File(REPORT);
-                    try (FileOutputStream out = new FileOutputStream(reportFile)) {
-                        Rio.write(validationReportModel, out, RDFFormat.TURTLE, writerConfig);
-                    }
-                    
-                    long westimatedTime = System.nanoTime() - wstartTime;
-                    System.out.println("Estimated writting time: " + TimeUnit.NANOSECONDS.toMillis(westimatedTime)/1000.0);
+                    validationReportModel = ((ValidationException) cause).validationReportAsModel();
                 }
                 // throw exception;
             }
             long estimatedTime = System.nanoTime() - startTime;
-            System.out.println("Estimated validation and writting time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
+
+            
+            WriterConfig writerConfig = new WriterConfig()
+                .set(BasicWriterSettings.INLINE_BLANK_NODES, true)
+                .set(BasicWriterSettings.XSD_STRING_TO_PLAIN_LITERAL, true)
+                .set(BasicWriterSettings.PRETTY_PRINT, true);
+            System.out.println("Report graph size: "+validationReportModel.size());                    
+            
+            File reportFile = new File(REPORT);
+            try (FileOutputStream out = new FileOutputStream(reportFile)) {
+                Rio.write(validationReportModel, out, RDFFormat.TURTLE, writerConfig);
+            }
+            
+            System.out.println("Estimated validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
         }
     }
 }

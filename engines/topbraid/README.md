@@ -1,5 +1,5 @@
 # TopBraid CLI Data validator
-Command line RDF data validator against SHACL shapes. It is based on TopBraid libraries, which supports SHACL shapes, SHACL-SPARQL and SPARQL constraints with GeoSPARQL queries.
+Command line RDF data validator against SHACL shapes. It is based on TopBraid libraries.
 
 ## To compile the application:
 1. Make sure you have Java, the JDK and Maven installed.
@@ -8,7 +8,7 @@ Command line RDF data validator against SHACL shapes. It is based on TopBraid li
 4. Run `mvn clean compile assembly:single`.
 5. As a result you should be able to access to a JAR file in the `target` folder.
 
-_The JAR provided in `target` was compiled with the Java openjdk version 17.0.11 and Apache Maven 3.9.6._
+_The JAR compilation was executed with the Java openjdk version 17.0.11 and Apache Maven 3.9.6._
 
 ## Usage
     Validator [-h] <data> <shapes> <report>
@@ -38,9 +38,13 @@ Graph size is given in number of triples and time in seconds.
 After the application is compiled into a JAR, a Docker image can be built by making use of the provided Dockerfile. \
 Type the command `docker build -t topbraid-validation-experiment:v0.1 .` to get a ready to use image.
 
-### Example
+When creating a container from the just built image it will call `run.sh` by default which is a bash script for batch validation created for Benchmarking purposes. 
+
+You can customize the Dockerfile entrypoint to point to the compiled JAR modifiying the corresponding `ENTRYPOINT` line. 
+
+<!-- ### Example
 To feed the app with data and shapes files a volume should be configured. The following listing is an example of how the docker image could be used. 
 ```docker
 docker run -v $(pwd)/data:/cli-data-validator/data --rm cli_data_validator:latest /cli-data-validator/data/example_data.ttl /cli-data-validator/data/example_shapes.ttl /cli-data-validator/data/example_report.ttl
 
-```
+``` -->
