@@ -34,7 +34,7 @@ public class ValidatorCommand implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println("Data: " + data + "\nShapes: " + shapes + "\nReport: " + report);
+		// System.out.println("Data: " + data + "\nShapes: " + shapes + "\nReport: " + report);
 		try {
 			RDFUnitValidator.validate(data, shapes, report);
 		} catch (IOException e) {

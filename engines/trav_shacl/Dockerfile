@@ -1,11 +1,10 @@
 # Use an official Python runtime as a parent image
 FROM python:3.10
 
-RUN mkdir /maplib
+RUN mkdir /trav_shacl
 
 RUN mkdir /data
 RUN mkdir /shapes
-RUN mkdir /results
 RUN mkdir /reports
 
 # Set the working directory in the container
@@ -20,10 +19,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Make shell script executable
-RUN chmod +x run.sh
+RUN chmod +x entrypoint.sh
 
 # Command to run the cli experiment
-ENTRYPOINT ["./run.sh"]
-
-# Command to run the cli application
-# ENTRYPOINT ["python", "validate.py"]
+ENTRYPOINT ["./entrypoint.sh"]

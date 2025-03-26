@@ -1,5 +1,8 @@
+.venv
 data/*
 shapes/*
+results/*
+reports/*
 # Compiled class file
 *.class
 

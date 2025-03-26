@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t dotnetrdf-validation-experiment:v0.1 .
+docker build -t dotnet_rdf-validation-experiment:latest .

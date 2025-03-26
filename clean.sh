@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo rm -r reports/*/* results/*/*
+sudo rm -r results/*/

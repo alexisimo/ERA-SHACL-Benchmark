@@ -2,7 +2,7 @@
 Command line RDF data validator against SHACL shapes. It is based on Jena libraries, which supports SHACL shapes, SHACL-SPARQL and SPARQL constraints with GeoSPARQL queries.
 
 ## To compile the application:
-1. Make sure you have Java, the JDK and Maven installed.
+1. Make sure you have Java, the JDK and Apache Maven installed.
 2. Clone the current repository.
 3. Navigate to the folder containing the `pom.xml` file.
 4. Run `mvn clean compile assembly:single`.
@@ -17,6 +17,8 @@ _The JAR compilation was executed with the Java openjdk version 17.0.11 and Apac
     *     <report>   Validation report
 
 The fields marked with an \* are mandatory.
+### Options
+    -h, --help     Display help
 
 ### Example
 ```bash
@@ -27,24 +29,21 @@ Apart from the report generated in the given directory the application gives som
 Data graph size: 40
 Shapes graph size: 49
 Report graph size: 115
-Estimated load time: 0.258
-Estimated validation time: 0.039
+Load time: 0.258
+Validation time: 0.039
 ```
 Graph size is given in number of triples and time in seconds.
-## Options
-    -h, --help     Display help
 
-### Docker
+## To create a Docker image
 The application can be compiled into a JAR within a Docker image by making use of the provided Dockerfile. \
-Type the command `docker build -t jena-validation-experiment:v0.1 .` to get a ready to use image.
+Type the command `docker build -t jena-cli-validator:latest .` to get a ready to use image.
 
-When creating a container from the just built image it will call `run.sh` by default which is a bash script for batch validation created for Benchmarking purposes. 
+When creating a container from the just built image it will call `entrypoint.sh` by default which is a bash script that passes the arguments to a maven execute command. 
 
-You can customize the Dockerfile entrypoint to point to the compiled JAR modifiying the corresponding `ENTRYPOINT` line. 
+Alternatively, you can customize the Dockerfile entrypoint to point to the compiled JAR by uncommenting the corresponding lines in the Dockerfile. 
 
-<!-- ### Example
-To feed the app with data and shapes files a volume should be configured. The following listing is an example of how the docker image could be used. 
+### Example
+To feed the app with data and shapes files you could configure a volume. The following listing is an example of how the docker image could be used. 
 ```docker
-docker run -v $(pwd)/data:/cli-data-validator/data --rm cli_data_validator:latest /cli-data-validator/data/example_data.ttl /cli-data-validator/data/example_shapes.ttl /cli-data-validator/data/example_report.ttl
-
-``` -->
+docker run -v $(pwd)/data:/data --rm jena-cli-validator:latest /data/example_data.ttl /data/example_shapes.ttl /data/example_report.ttl
+```

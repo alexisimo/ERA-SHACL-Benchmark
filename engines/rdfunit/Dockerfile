@@ -4,7 +4,6 @@ RUN mkdir /rdfunit
 
 RUN mkdir /data
 RUN mkdir /shapes
-RUN mkdir /results
 RUN mkdir /reports
 
 # Set the working directory in the container
@@ -13,11 +12,15 @@ WORKDIR /rdfunit
 # Copy the rest of the application code into the container
 COPY . . 
 
-# Complile application
-RUN mvn clean compile assembly:single
-
 # Make shell script executable
-RUN chmod +x run.sh
+RUN chmod +x entrypoint.sh
 
 # Command to run the cli application
-ENTRYPOINT ["./run.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
+
+## Alternative
+## Compile application
+# RUN mvn clean compile assembly:single
+## Command to run the compiled JAR
+# ENTRYPOINT ["java","-jar", "target/validator-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
+

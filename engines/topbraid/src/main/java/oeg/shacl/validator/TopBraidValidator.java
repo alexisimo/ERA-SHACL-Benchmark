@@ -28,7 +28,7 @@ public class TopBraidValidator {
         dataModel.read(DATA, FileUtils.langTurtle);
         long estimatedLoadTime = System.nanoTime() - startLoadTime;
 		System.out.println("Data graph size: " + dataModel.size() );
-		System.out.println("Estimated load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
+		System.out.println("Load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
 
 		// Load the shapes model
 		Model shapesModel = JenaUtil.createMemoryModel();
@@ -42,7 +42,7 @@ public class TopBraidValidator {
       long estimatedTime = System.nanoTime() - startTime;
 		System.out.println("Report graph size: " + report.getModel().size() );
 
-      System.out.println("Estimated validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
+      System.out.println("Validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
 
       try {
           File file = new File(REPORT);

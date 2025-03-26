@@ -5,7 +5,7 @@ RUN mkdir /pyshacl
 
 RUN mkdir /data
 RUN mkdir /shapes
-RUN mkdir /results
+
 RUN mkdir /reports
 
 # Set the working directory in the container
@@ -24,7 +24,7 @@ COPY . .
 RUN chmod +x run.sh
 
 # Command to run the cli experiment
-ENTRYPOINT ["./run.sh"]
+# ENTRYPOINT ["./run.sh"]
 
 # Command to run the cli application
-# ENTRYPOINT ["python", "validate.py"]
+ENTRYPOINT ["python", "validate.py"]

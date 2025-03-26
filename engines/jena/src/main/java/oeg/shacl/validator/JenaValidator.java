@@ -23,18 +23,11 @@ public class JenaValidator {
     public static void validate(String DATA, String SHAPES, String REPORT) throws IOException {
 
         long startLoadTime = System.nanoTime();
-        Dataset dataDataset = RDFDataMgr.loadDataset(DATA);
-        Model dataModel = ModelFactory.createDefaultModel();
-        Graph dataGraph = dataModel.getGraph();
-        if (DATA.endsWith(".nq")) {
-            dataGraph = dataDataset.getUnionModel().getGraph();
-        } else {
-            dataGraph = dataDataset.getDefaultModel().getGraph();
-        }
+        Graph dataGraph = RDFDataMgr.loadGraph(DATA);
         long estimatedLoadTime = System.nanoTime() - startLoadTime;
         int dataGraphSize = dataGraph.size() ;
         System.out.println("Data graph size: " + dataGraphSize);
-		System.out.println("Estimated load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
+		System.out.println("Load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
 
         Graph shapesGraph = RDFDataMgr.loadGraph(SHAPES);
         int shapesGraphSize = shapesGraph.size() ;
@@ -51,7 +44,7 @@ public class JenaValidator {
         int reportGraphSize = report.getGraph().size() ;
         System.out.println("Report graph size: " + reportGraphSize);
 
-        System.out.println("Estimated validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
+        System.out.println("Validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
         
         try {
             File file = new File(REPORT);

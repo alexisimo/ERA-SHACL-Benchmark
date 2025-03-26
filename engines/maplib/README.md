@@ -19,6 +19,10 @@ To use this application you can run the entrypoint script `validate.py` as follo
     *     <shapes>   SHACL shapes
     *     <report>   Validation report
 _The fields marked with an \* are mandatory._
+## Options
+The optional arguments are the following:
+
+    -h, --help            show this help message and exit
 
 
 ### Example
@@ -27,20 +31,18 @@ python validate.py path/to/rdf_data.ttl path/to/shacl_shapes.ttl path/to/save/re
 ```
 Apart from the report generated in the given directory the application gives some relevant information about the validation process.
 ```
-Estimated load time: 0.258
-Estimated validation time: 0.039
+Load time: 0.258
+Validation time: 0.039
 ```
 Time is given in seconds.
 
-## Options
-The optional arguments are the following:
-
-    -h, --help            show this help message and exit
-
-### Docker
+## To create a Docker image
 The application can be packed into a Docker image by making use of the provided Dockerfile. \
-Type the command `docker build -t maplib-validation-experiment:v0.1 .` to get a ready to use image.
+Type the command `docker build -t maplib-cli-validator:latest .` to get a ready to use image.
 
-When creating a container from the just built image it will call `run.sh` by default which is a bash script for batch validation created for Benchmarking purposes. 
 
-You can customize the Dockerfile entrypoint to point to the CLI app in the corresponding `ENTRYPOINT` line.
+### Example
+To feed the app with data and shapes files you could configure a volume. The following listing is an example of how the docker image could be used. 
+```docker
+docker run -v $(pwd)/data:/data --rm maplib-cli-validator:latest /data/example_data.ttl /data/example_shapes.ttl /data/example_report.ttl
+``` 

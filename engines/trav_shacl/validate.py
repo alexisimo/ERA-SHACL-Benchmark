@@ -14,14 +14,20 @@ def trav_shacl_validate(DATA, SHAPES, REPORT):
         g.parse(data=file.read())
     load_tictoc = time.time() - load_tic
     print(f"Number of data statements parsed: {len(g)}")
-    print(f"Estimated load time: {load_tictoc}")
+    print(f"Load time: {load_tictoc}")
+
+    # Shapes parsing
+    sg = rdflib.Graph()
+    with open(SHAPES, "r", encoding="utf-8") as file:
+        sg.parse(data=file.read())
+    print(f"Number of shapes statements parsed: {len(sg)}")
 
     prio_target = 'TARGET'  # shapes with target definition are preferred, alternative value: ''
     prio_degree = 'IN'  # shapes with a higher in-degree are prioritized, alternative value 'OUT'
     prio_number = 'BIG'  # shapes with many constraints are evaluated first, alternative value 'SMALL'
 
     shape_schema = ShapeSchema(
-        schema_dir=SHAPES,
+        schema_dir=sg,
         endpoint=g,
         endpoint_user=None,  # username if validating a private endpoint
         endpoint_password=None,  # password if validating a private endpoint
@@ -31,13 +37,13 @@ def trav_shacl_validate(DATA, SHAPES, REPORT):
         max_split_size=256,
         output_dir=REPORT,  # directory where the output files will be stored
         order_by_in_queries=False,  # sort the results of SPARQL queries in order to ensure the same order across several runs
-        save_outputs=True  # save outputs to output_dir, alternative value: False
+        save_outputs=False  # save outputs to output_dir, alternative value: False
     )
-    tic = time.time()
 
+    tic = time.time()
     result = shape_schema.validate()  # validate the SHACL shape schema
     tictoc = time.time() - tic
-    print( "Estimated validation time: ", tictoc)
+    print( "Validation time: ", tictoc)
 
 
 parser = argparse.ArgumentParser(

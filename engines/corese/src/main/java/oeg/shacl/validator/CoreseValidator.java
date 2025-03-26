@@ -25,7 +25,7 @@ public class CoreseValidator {
 			ld.parse(DATA);
 			long estimatedLoadTime = System.nanoTime() - startLoadTime;
 			System.out.println("Data graph size: " + dataGraph.size() );
-			System.out.println("Estimated load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
+			System.out.println("Load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
 		} catch (LoadException e) {
 			e.printStackTrace();
 		}
@@ -54,7 +54,7 @@ public class CoreseValidator {
 			Transformer transformer = Transformer.create(result, Transformer.TURTLE);
 //			System.out.println(transformer.toString());
 			System.out.println("Report graph size: " + result.size());
-	        System.out.println("Estimated validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);	
+	        System.out.println("Validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);	
             try {
 	            File file = new File(REPORT);
 	            FileOutputStream outputStream = new FileOutputStream(file, false);

@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t travshacl-validation-experiment:v0.1 .
+docker build -t trav_shacl-validation-experiment:latest .

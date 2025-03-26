@@ -1,3 +1,3 @@
 # ERA-SHACL-Benchmark
 ERA-SHACL Benchmark
-Each tested engine was configured to run in memory as recommended by their respective documentation. To ensure reproducibility and portability, the engines were included in the simplest library use case within a CLI application and packed in docker images. The loading and validation times were measured within each engine's operation using time measurement standard libraries in the corresponding programming language each library has been programmed.
+Each tested engine was configured to run in memory as recommended by their respective documentation. To ensure reproducibility and portability, the engines were included in the simplest library use case within a CLI application and packed in docker images. The loading and validation times were measured within each engine's operation using time measurement standard libraries in the corresponding programming language each library has been programmed with.

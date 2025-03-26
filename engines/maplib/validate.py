@@ -22,7 +22,7 @@ def maplib_validate(DATA, SHAPES, REPORT):
     load_tic = time.time()
     m.read_triples(DATA)
     load_tictoc = time.time() - load_tic
-    print("Estimated load time: ", load_tictoc)
+    print("Load time: ", load_tictoc)
 
     # Parse shacl shapes to rdflib graph 
     shape_graph = "urn:eu:shacl"
@@ -33,7 +33,7 @@ def maplib_validate(DATA, SHAPES, REPORT):
     tic = time.time()
     report = m.validate(shape_graph=shape_graph)
     tictoc = time.time() - tic
-    print( "Estimated validation time: ", tictoc)
+    print( "Validation time: ", tictoc)
 
     # Generate report
     report.graph().write_ntriples(os.path.splitext(REPORT)[0]+".nt")

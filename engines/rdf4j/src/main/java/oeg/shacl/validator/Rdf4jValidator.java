@@ -42,7 +42,7 @@ public class Rdf4jValidator {
             	connection.add(input,"", RDFFormat.TURTLE);
         		long estimatedLoadTime = System.nanoTime() - startLoadTime;
             	System.out.println("Data graph size: "+connection.size());
-        		System.out.println("Estimated load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
+        		System.out.println("Load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
             }
 
             connection.commit();
@@ -82,7 +82,7 @@ public class Rdf4jValidator {
                 Rio.write(validationReportModel, out, RDFFormat.TURTLE, writerConfig);
             }
             
-            System.out.println("Estimated validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
+            System.out.println("Validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
         }
     }
 }

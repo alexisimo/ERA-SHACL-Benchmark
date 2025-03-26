@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t jena-validation-experiment:v0.1 .
+docker build -t jena-validation-experiment:latest .

@@ -25,7 +25,7 @@ def pyshacl_validate(DATA, SHAPES, REPORT):
         g.parse(data=file.read())
     load_tictoc = time.time() - load_tic
     print(f"Data graph size: {len(g)}")
-    print(f"Estimated load time: {load_tictoc}")
+    print(f"Load time: {load_tictoc}")
 
     # Parse shacl shapes to rdflib graph 
     sg = rdflib.Graph()
@@ -42,6 +42,6 @@ def pyshacl_validate(DATA, SHAPES, REPORT):
 
     # Generate report
     vres_graph.serialize(format="turtle", destination=REPORT)
-    print(f"Estimated validation time: {tictoc}")
+    print(f"Validation time: {tictoc}")
 
 pyshacl_validate(args.data, args.shapes, args.report)

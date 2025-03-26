@@ -24,18 +24,14 @@ import org.aksw.rdfunit.io.reader.RdfReaderFactory;
 public class RDFUnitValidator {
 
     public static void validate(String DATA, String SHAPES, String REPORT) throws IOException {
-		try {
 
         long startLoadTime = System.nanoTime();
-		Model dataModel = RdfReaderFactory.createResourceReader(DATA).read();
+		Model dataModel = RDFDataMgr.loadModel(DATA, Lang.TTL) ;
 		long estimatedLoadTime = System.nanoTime() - startLoadTime;
 
-		// Model shapesModel = RDFDataMgr.loadModel(SHAPES, Lang.TTL) ;
 		int dataGraphSize = dataModel.getGraph().size() ;
-		// int shapesGraphSize = shapesModel.getGraph().size() ;
 		System.out.println("Data graph size: " + dataGraphSize);
-		System.out.println("Estimated load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
-		// System.out.println("Shapes graph size: " + shapesGraphSize);
+		System.out.println("Load time: " + TimeUnit.NANOSECONDS.toMillis(estimatedLoadTime)/1000.0 );
 		
 		RDFUnitStaticValidator.initWrapper(
 				new RDFUnitTestSuiteGenerator.Builder()
@@ -45,7 +41,7 @@ public class RDFUnitValidator {
         long startTime = System.nanoTime();
 		TestExecution validation = RDFUnitStaticValidator.validate(dataModel, TestCaseExecutionType.shaclTestCaseResult);
         long estimatedTime = System.nanoTime() - startTime;
-        System.out.println("Estimated validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
+        System.out.println("Validation time: " + TimeUnit.NANOSECONDS.toMillis(estimatedTime)/1000.0);
 		
 		System.out.println("Individual errors: "+validation.getDatasetOverviewResults().getIndividualErrors());
 		
@@ -62,10 +58,6 @@ public class RDFUnitValidator {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-				} catch (RdfReaderException e){
-			e.printStackTrace();
-		}
-
     
 	}
 }
