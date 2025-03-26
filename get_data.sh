@@ -1,13 +1,12 @@
 #!/bin/bash
 # Get datadump and convert to ntriples
-# mkdir data/raw
-# cd data/raw
-# curl -O https://zenodo.org/records/14605744/files/2025-01-05-rinf-xml-combined.nq.xz
-# xz -d 2025-01-05-rinf-xml-combined.nq.xz
-# rev 2025-01-05-rinf-xml-combined.nq | cut -d "<" -f 2- |rev |sed 's/.$/./'  > 2025-01-05-rinf-xml-combined.nt
-# rm 2025-01-05-rinf-xml-combined.nq
-# cd ../..
-
+mkdir data/raw
+cd data/raw
+curl -O https://zenodo.org/records/14605744/files/2025-01-05-rinf-xml-combined.nq.xz
+xz -d 2025-01-05-rinf-xml-combined.nq.xz
+rev 2025-01-05-rinf-xml-combined.nq | cut -d "<" -f 2- |rev |sed 's/.$/./'  > 2025-01-05-rinf-xml-combined.nt
+rm 2025-01-05-rinf-xml-combined.nq
+cd ../..
 
 # Get vocabularies
 mkdir data/vocabularies
@@ -94,10 +93,11 @@ cat data/vocabularies/vocabularies.ttl data/raw/FR.nt > data/FR.ttl
 cat data/vocabularies/vocabularies.ttl data/raw/LV.nt > data/LV.ttl
 
 # Free disk space
-# rm -r data/raw
-# rm -r data/vocabularies
+rm -r data/raw
+rm -r data/vocabularies
 
 # Get shapes
+mkdir shapes
 cd shapes
 curl -o era_shapes.ttl https://data-interop.era.europa.eu/era-vocabulary/era-shapes
 cd ..
