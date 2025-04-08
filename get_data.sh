@@ -2,8 +2,11 @@
 # Get datadump and convert to ntriples
 mkdir data/raw
 cd data/raw
+echo "Downloading the compressed knowledge graph assertions from the repository..."
 curl -O https://zenodo.org/records/14605744/files/2025-01-05-rinf-xml-combined.nq.xz
+echo "Uncompressing file into nquads..."
 xz -d 2025-01-05-rinf-xml-combined.nq.xz
+echo "Converting from nquads to ntriples... (this process takes a couple minutes)"
 rev 2025-01-05-rinf-xml-combined.nq | cut -d "<" -f 2- |rev |sed 's/.$/./'  > 2025-01-05-rinf-xml-combined.nt
 rm 2025-01-05-rinf-xml-combined.nq
 cd ../..
@@ -11,6 +14,7 @@ cd ../..
 # Get vocabularies
 mkdir data/vocabularies
 cd data/vocabularies
+echo "Downloading the knoledge graph vocabularies and ontology..."
 curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-AxleBearingMonitoring.ttl
 curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-BrakeParkingType.ttl
 curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-Categories.ttl
@@ -81,6 +85,7 @@ curl -O https://data-interop.era.europa.eu/era-vocabulary/ontology.ttl
 cd ../..
 
 # Subsets
+echo "Subsetting and concatenating with the vocabularies into the benchmark knowledge graph subsets..."
 sed -n 33538045,34761236p data/raw/2025-01-05-rinf-xml-combined.nt > data/raw/ES.nt
 sed -n 35092900,46412047p data/raw/2025-01-05-rinf-xml-combined.nt > data/raw/FR.nt
 sed -n 50188479,50215374p data/raw/2025-01-05-rinf-xml-combined.nt > data/raw/LV.nt
@@ -93,16 +98,21 @@ cat data/vocabularies/vocabularies.ttl data/raw/FR.nt > data/FR.ttl
 cat data/vocabularies/vocabularies.ttl data/raw/LV.nt > data/LV.ttl
 
 # Free disk space
+echo "Cleaning directories..."
 rm -r data/raw
 rm -r data/vocabularies
 
 # Get shapes
 mkdir shapes
 cd shapes
+echo "Downloading the full set of SHACL shapes..."
 curl -o era_shapes.ttl https://data-interop.era.europa.eu/era-vocabulary/era-shapes
 cd ..
 
 # Subset shapes for SHACL core only # remove REGEX era-sh:.*sparql((.|\n)+?""" .$)
+echo "Subsetting SHACL shapes into core and train detection systems..."
 sed '/era-sh:.*sparql/,/.*""".*.$/d' shapes/era_shapes.ttl > shapes/core_shapes.ttl
 # Subset shapes for train detection systems
 sed -n 4381,4796p shapes/era_shapes.ttl > shapes/tds_shapes.ttl
+
+echo "Done."
