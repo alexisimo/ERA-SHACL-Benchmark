@@ -1,0 +1,66 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+era-sh:operationalpointsShape  
+    a sh:NodeShape ;
+    # sh:targetClass era:OperationalPoint .
+	sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/0b940a5320dee6993ae2e90f88538465f0f3c0bc>; # Valid Resource
+	sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/a7a2ce92523c7c250b0bb25a6e7a2a31b82acc8c>. # Invalid Resource
+
+# era-sh:trackShape
+#     a sh:NodeShape ;
+# #     # sh:targetClass era:Track .
+# 	sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/76a7ffd81d2816bfa8996aa8679e3407bd7d89f2>. # Valid Resource
+
+# localRulesOrRestrictionsDoc: # 1.2.3.2 todo revisar Y/N/NYA
+era-sh:operationalpointsShape sh:property era-sh:localRulesOrRestrictionsDoc .
+# era-sh:trackShape sh:property era-sh:localRulesOrRestrictionsDoc .
+era-sh:localRulesOrRestrictionsDoc
+	a sh:PropertyShape;
+    era:affectedClass era:OperationalPoint;
+    era:affectedProperty era:localRulesOrRestrictionsDoc ;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Reference of the documents regarding the rules or restrictions of a strictly local nature available by the IM." ;
+	era:rinfIndex "1.2.3.2" ;
+	# sh:targetClass era:OperationalPoint ;
+	sh:path era:localRulesOrRestrictionsDoc ;
+	# # sh:minCount 0 ;
+	sh:class era:Document.
+	# sh:severity sh:Violation ; # Not in the test scope
+	# sh:message "localRulesOrRestrictionsDoc (1.2.3.2): The Operational Point has a localRulesOrRestrictionsDoc reference that must be a Document."@en . # Not in the test scope
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <class-era-001>
+    ) ;
+.
+<class-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of sh:class at property shape 001" ;
+  mf:action [
+      sht:dataGraph <test_subset.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/a7a2ce92523c7c250b0bb25a6e7a2a31b82acc8c> ;
+			sh:resultPath era:localRulesOrRestrictionsDoc ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:ClassConstraintComponent ;
+			sh:sourceShape era-sh:localRulesOrRestrictionsDoc ;
+			sh:value <http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe>
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

@@ -1,0 +1,64 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+era-sh:trackShape
+    a sh:NodeShape ;
+    # sh:targetClass era:Track .
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>; # Invalid Resource
+	sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/21ffaaa0f33d609cbd6f672df6f3f34927b90047>. # Valid Resource
+
+# phaseInfoDistanceType: # 1.1.1.2.4.1.2 
+ era-sh:trackShape sh:property era-sh:PhaseInfoDistanceType.
+ era-sh:PhaseInfoDistanceType 
+    a sh:PropertyShape ; era:affectedProperty era:phaseInfoDistanceType  ;     era:affectedClass  era:Track;     era:scope "local";     era:validationAfterXML "false"^^xsd:boolean;
+    era:affectedClass  era:PhaseInfo;
+	rdfs:comment "Indication of existence of phase separation and required information." ;
+	sh:path (era:trackPhaseInfo era:phaseInfoDistanceType) ;
+    era:rinfIndex "1.1.1.2.4.1.2" ;
+	##sh:minCount 0 ; #TODO: Not yet applicable
+ 	# sh:datatype xsd:string ;
+    sh:or (
+        [sh:hasValue "MIN"]
+        [sh:hasValue "MAX"]
+    );
+ 	# sh:severity sh:Violation ;
+ 	# sh:message "Phase info distance type (1.1.1.2.4.1.2): The track has a phase info with the single selection of 'MIN=minimum' or 'MAX=maximum' to show whether the length is a minimum distance between the inner contact strips of the pantographs or a maximum distance between the outer contact strips of the pantographs, that must be the string MIN or MAX. This error may be due to the track having a value that is not one of the strings MIN or MAX."@en .
+.
+
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <or-era-001>
+    ) ;
+.
+<or-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of property minInclusive 001" ;
+  mf:action [
+      sht:dataGraph <test_subset.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4> ;
+            sh:resultPath ( era:trackPhaseInfo era:phaseInfoDistanceType ) ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent  sh:OrConstraintComponent ;
+            sh:sourceShape era-sh:PhaseInfoDistanceType ;
+            sh:value ""
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

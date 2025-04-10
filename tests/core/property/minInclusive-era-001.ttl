@@ -1,0 +1,66 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+era-sh:locationShape
+	a sh:NodeShape ;
+	# sh:targetClass geosparql:Geometry .
+    sh:targetNode <http://data.europa.eu/949/locations/%2B5.0966/52.0988> ; # Valid Resource
+    sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055>. # Invalid Resource
+
+# wgs:lat
+era-sh:locationShape sh:property era-sh:lat .
+era-sh:lat
+	a sh:PropertyShape;
+    era:affectedClass geosparql:Geometry;
+    era:affectedProperty wgs:lat ;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Latitude following the spatial reference system WGS84." ;
+	# sh:targetClass geosparql:Geometry ;
+	sh:path wgs:lat ;
+	# sh:minCount 1 ;
+	# sh:maxCount 1 ;
+	sh:minInclusive 34;
+	# sh:maxExclusive 73;
+	# sh:datatype xsd:double ;
+	# sh:severity sh:Violation ;
+	# sh:message "wgs:lat property. This error may be due to having a Geometry without or with more than one lat property or it value is out of the latitude range of Europe." .
+.
+
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <minInclusive-era-001>
+    ) ;
+.
+<minInclusive-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of property minInclusive 001" ;
+  mf:action [
+      sht:dataGraph <test_subset.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+			sh:resultPath wgs:lat ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
+			sh:sourceShape era-sh:lat ;
+			sh:value "16.6055"^^xsd:double
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

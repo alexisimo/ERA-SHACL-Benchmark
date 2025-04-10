@@ -1,0 +1,65 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+era-sh:locationShape
+	a sh:NodeShape ;
+	# sh:targetClass geosparql:Geometry .
+    sh:targetNode <http://data.europa.eu/949/locations/%2B5.0966/52.0988> ; # Valid Resource
+    sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055>. # Invalid Resource
+
+# wgs:long
+era-sh:locationShape sh:property era-sh:long .
+era-sh:long
+	a sh:PropertyShape;
+    era:affectedClass geosparql:Geometry;
+    era:affectedProperty wgs:long ;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Longitude following the spatial reference system WGS84." ;
+	# sh:targetClass geosparql:Geometry ;
+	sh:path wgs:long ;
+	# sh:minCount 1 ;
+	# sh:maxCount 1 ;
+	# sh:minInclusive -25;
+	sh:maxExclusive 46;
+	# sh:datatype xsd:double ;
+	# sh:severity sh:Violation ;
+	# sh:message "wgs:long property. This error may be due to having a Geometry without or with more than one long property or it value is out of the longitude range of Europe." .
+.
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <maxExclusive-era-001>
+    ) ;
+.
+<maxExclusive-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of property minInclusive 001" ;
+  mf:action [
+      sht:dataGraph <test_subset.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+            sh:resultPath wgs:long ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+            sh:sourceShape era-sh:long ;
+            sh:value "+49.2266"^^xsd:double
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.
