@@ -9,41 +9,52 @@
 @prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
 @prefix sht: <http://www.w3.org/ns/shacl-test#> .
 
-era-sh:phaseInfoShape
-    a sh:NodeShape ;
-    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>; # Invalid Resource
-	sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/Vilnius-Kena-BY_LTKena_II_EU00250_distancetypeMAXlength270switchoffbreakerYlowerpantographNchangesupplysystemNkm034.780>. # Valid Resource
+# era-sh:trackShape
+    # a sh:NodeShape ;
+    # sh:targetClass era:Track .
 
 # phaseInfoDistanceType: # 1.1.1.2.4.1.2 
- era-sh:phaseInfoShape sh:property era-sh:PhaseInfoDistanceType.
+#  era-sh:trackShape sh:property era-sh:PhaseInfoDistanceType.
  era-sh:PhaseInfoDistanceType 
-    a sh:PropertyShape ; era:affectedProperty era:phaseInfoDistanceType  ;     era:affectedClass  era:Track;     era:scope "local";     era:validationAfterXML "false"^^xsd:boolean;
+    # a sh:PropertyShape ; era:affectedProperty era:phaseInfoDistanceType  ;     era:affectedClass  era:Track;     era:scope "local";     era:validationAfterXML "false"^^xsd:boolean;
+    a sh:NodeShape ;
     era:affectedClass  era:PhaseInfo;
 	rdfs:comment "Indication of existence of phase separation and required information." ;
-	sh:path era:phaseInfoDistanceType ;
+	# sh:path (era:trackPhaseInfo era:phaseInfoDistanceType) ;
     era:rinfIndex "1.1.1.2.4.1.2" ;
 	##sh:minCount 0 ; #TODO: Not yet applicable
  	# sh:datatype xsd:string ;
     sh:or (
-        [sh:hasValue "MIN"]
-        [sh:hasValue "MAX"]
+        [
+            sh:property [
+                sh:path (era:trackPhaseInfo era:phaseInfoDistanceType) ;
+                sh:hasValue "MIN"
+            ]
+        ]
+        [
+            sh:property [
+                sh:path (era:trackPhaseInfo era:phaseInfoDistanceType) ;
+                sh:hasValue "MAX"
+            ]
+        ]
     );
  	# sh:severity sh:Violation ;
  	# sh:message "Phase info distance type (1.1.1.2.4.1.2): The track has a phase info with the single selection of 'MIN=minimum' or 'MAX=maximum' to show whether the length is a minimum distance between the inner contact strips of the pantographs or a maximum distance between the outer contact strips of the pantographs, that must be the string MIN or MAX. This error may be due to the track having a value that is not one of the strings MIN or MAX."@en .
-.
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>; # Invalid Resource
+	sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/21ffaaa0f33d609cbd6f672df6f3f34927b90047>. # Valid Resource
 
 
 <>
   rdf:type mf:Manifest ;
   mf:entries (
-      <or-era-001>
+      <or-era-002>
     ) ;
 .
-<or-era-001>
+<or-era-002>
   rdf:type sht:Validate ;
-  rdfs:label "Test of node or 001" ;
+  rdfs:label "Test of node or 002" ;
   mf:action [
-      sht:dataGraph <or-era-001-data.ttl> ;
+      sht:dataGraph <or-era-002-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
   mf:result [
@@ -51,12 +62,12 @@ era-sh:phaseInfoShape
       sh:conforms "false"^^xsd:boolean ;
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
-            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
-            sh:resultPath era:phaseInfoDistanceType ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4> ;
+            # sh:resultPath ( era:trackPhaseInfo era:phaseInfoDistanceType ) ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraintComponent  sh:OrConstraintComponent ;
             sh:sourceShape era-sh:PhaseInfoDistanceType ;
-            sh:value ""
+            sh:value <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>
         ] ;
     ] ;
    mf:status sht:proposed ;

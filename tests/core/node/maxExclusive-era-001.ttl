@@ -10,44 +10,42 @@
 @prefix sht: <http://www.w3.org/ns/shacl-test#> .
 
 # era-sh:locationShape
-	# a sh:NodeShape ;
+# 	a sh:NodeShape ;
 	# sh:targetClass geosparql:Geometry .
 
-# wgs:lat
-# era-sh:locationShape sh:property era-sh:lat .
-era-sh:lat
+# wgs:long
+# era-sh:locationShape sh:property era-sh:long .
+era-sh:long
 	# a sh:PropertyShape;
-  a sh:NodeShape;
+    a sh:NodeShape ;
     era:affectedClass geosparql:Geometry;
-    era:affectedProperty wgs:lat ;
+    era:affectedProperty wgs:long ;
     era:scope "local";
     era:validationAfterXML "false"^^xsd:boolean;
-	rdfs:comment "Latitude following the spatial reference system WGS84." ;
+	rdfs:comment "Longitude following the spatial reference system WGS84." ;
 	# sh:targetClass geosparql:Geometry ;
-	# sh:path wgs:lat ;
+	# sh:path wgs:long ;
 	# sh:minCount 1 ;
 	# sh:maxCount 1 ;
-	sh:minInclusive 34;
-	# sh:maxExclusive 73;
+	# sh:minInclusive -25;
+	sh:maxExclusive 46;
 	# sh:datatype xsd:double ;
 	# sh:severity sh:Violation ;
-	# sh:message "wgs:lat property. This error may be due to having a Geometry without or with more than one lat property or it value is out of the latitude range of Europe." .
-  sh:targetNode "52.0988"^^<http://www.w3.org/2001/XMLSchema#double> ; # Valid Resource
-  sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055>; # Invalid Resource
-.
-
+	# sh:message "wgs:long property. This error may be due to having a Geometry without or with more than one long property or it value is out of the longitude range of Europe." .
+    sh:targetNode "+5.0966"^^<http://www.w3.org/2001/XMLSchema#double> ; # Valid Resource
+    sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055>. # Invalid Resource
 
 <>
   rdf:type mf:Manifest ;
   mf:entries (
-      <minInclusive-era-001>
+      <maxExclusive-era-001>
     ) ;
 .
-<minInclusive-era-001>
+<maxExclusive-era-001>
   rdf:type sht:Validate ;
-  rdfs:label "Test of node minInclusive 001" ;
+  rdfs:label "Test of maxExclusive in node 001" ;
   mf:action [
-      sht:dataGraph <minInclusive-era-001-data.ttl> ;
+      sht:dataGraph <maxExclusive-era-001-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
   mf:result [
@@ -55,12 +53,12 @@ era-sh:lat
       sh:conforms "false"^^xsd:boolean ;
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
-			sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
-			sh:resultPath wgs:lat ;
-			sh:resultSeverity sh:Violation ;
-			sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
-			sh:sourceShape era-sh:lat ;
-			sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055>
+            sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+            sh:resultPath wgs:long ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+            sh:sourceShape era-sh:long ;
+            sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055>
         ] ;
     ] ;
    mf:status sht:proposed ;

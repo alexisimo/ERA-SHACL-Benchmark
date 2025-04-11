@@ -124,6 +124,7 @@ grep "<http://data.europa.eu/949/documents/b4e2b5340d9c2086affeabbf1f6f427f0112c
 echo "# class-era-001 invalid resource" >> tests/core/property/class-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/operationalPoints/a7a2ce92523c7c250b0bb25a6e7a2a31b82acc8c>" data/ERA.ttl >> tests/core/property/class-era-001-data.ttl
 grep "<http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe>" data/ERA.ttl >> tests/core/property/class-era-001-data.ttl
+cp tests/core/property/class-era-001-data.ttl tests/core/node/class-era-001-data.ttl
 
 echo "Getting path-sequence-era-001 test resources..."
 echo "# path-sequence-era-001 valid resource" > tests/core/path/path-sequence-era-001-data.ttl
@@ -140,6 +141,7 @@ grep "<http://data.europa.eu/949/functionalInfrastructure/phaseInfo/Vilnius-Kena
 echo "# datatype-era-002 invalid resource" >> tests/core/property/datatype-era-002-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>" data/ERA.ttl >> tests/core/property/datatype-era-002-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>" data/ERA.ttl >> tests/core/property/datatype-era-002-data.ttl
+cp tests/core/property/datatype-era-002-data.ttl tests/core/node/datatype-era-002-data.ttl
 
 echo "Getting or-era-001 test resources..."
 echo "# or-era-001 valid resource" > tests/core/property/or-era-001-data.ttl
@@ -148,24 +150,30 @@ grep "<http://data.europa.eu/949/functionalInfrastructure/phaseInfo/Vilnius-Kena
 echo "# or-era-001 invalid resource" >> tests/core/property/or-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>" data/ERA.ttl >> tests/core/property/or-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>" data/ERA.ttl >> tests/core/property/or-era-001-data.ttl
+cp tests/core/property/or-era-001-data.ttl tests/core/property/or-era-002-data.ttl
+cp tests/core/property/or-era-001-data.ttl tests/core/node/or-era-001-data.ttl
+cp tests/core/property/or-era-001-data.ttl tests/core/node/or-era-002-data.ttl
 
 echo "Getting pattern-era-001 test resources..."
 echo "# pattern-era-001 valid resource" > tests/core/property/pattern-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932>" data/ERA.ttl >> tests/core/property/pattern-era-001-data.ttl
 echo "# pattern-era-001 invalid resource" >> tests/core/property/pattern-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df>" data/ERA.ttl >> tests/core/property/pattern-era-001-data.ttl
+cp tests/core/property/pattern-era-001-data.ttl tests/core/node/pattern-era-001-data.ttl
 
 echo "Getting maxExclusive-era-001 test resources..."
 echo "# maxExclusive-era-001 valid resource" > tests/core/property/maxExclusive-era-001-data.ttl
 grep "<http://data.europa.eu/949/locations/%2B5.0966/52.0988>" data/ERA.ttl >> tests/core/property/maxExclusive-era-001-data.ttl
 echo "# maxExclusive-era-001 invalid resource" >> tests/core/property/maxExclusive-era-001-data.ttl
 grep "<http://data.europa.eu/949/locations/%2B49.2266/16.6055>" data/ERA.ttl >> tests/core/property/maxExclusive-era-001-data.ttl
+cp tests/core/property/maxExclusive-era-001-data.ttl tests/core/node/maxExclusive-era-001-data.ttl
 
 echo "Getting minInclusive-era-001 test resources..."
 echo "# minInclusive-era-001 invalid resource" > tests/core/property/minInclusive-era-001-data.ttl
 grep "<http://data.europa.eu/949/locations/%2B49.2266/16.6055>" data/ERA.ttl >> tests/core/property/minInclusive-era-001-data.ttl
 echo "# minInclusive-era-001 valid resource" >> tests/core/property/minInclusive-era-001-data.ttl
 grep "<http://data.europa.eu/949/locations/%2B5.0966/52.0988>" data/ERA.ttl >> tests/core/property/minInclusive-era-001-data.ttl
+cp tests/core/property/minInclusive-era-001-data.ttl tests/core/node/minInclusive-era-001-data.ttl
 
 echo "Getting sparql-era-001 test resources..."
 echo "# ontology and train protection legacy systems skos concepts" > tests/sparql/property/sparql-era-001-data.ttl
@@ -175,7 +183,7 @@ grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/07946c41d18b51d
 echo "# sparql-era-001 invalid resource" >> tests/sparql/property/sparql-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>" data/ERA.ttl >> tests/sparql/property/sparql-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>" data/ERA.ttl >> tests/sparql/property/sparql-era-001-data.ttl
-
+cp tests/sparql/property/sparql-era-001-data.ttl tests/sparql/node/sparql-era-001-data.ttl
 # Modified shapes to test other features
 echo "Getting minInclusive-era-001 test resources..."
 echo "# minInclusive-era-001 invalid resource" > tests/core/node/minInclusive-era-001-data.ttl

@@ -1,0 +1,72 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+# era-sh:sidingsShape
+	# a sh:NodeShape ;
+# 	sh:targetClass era:Siding .   # Applies to all Siding
+
+# imCode: #1.2.2.0.0.1
+# era-sh:sidingsShape sh:property era-sh:imCodeS .
+era-sh:imCodeS
+	# a sh:PropertyShape ;
+  a sh:NodeShape ;
+    era:affectedProperty era:imCode ;
+    era:affectedClass era:Siding;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Infrastructure manager means any body or undertaking that is responsible in particular for establishing and maintaining railway infrastructure or a part thereof" ;
+	era:rinfIndex "1.2.2.0.0.1" ;
+	# sh:path era:imCode ;
+	# sh:minCount 1 ;
+	# sh:maxCount 1 ;
+	# sh:datatype xsd:string ;
+	sh:pattern "^[0-9]{4}$" ;
+	# sh:severity sh:Violation ;
+	# sh:message "imCode (1.2.2.0.0.1): Each Siding must refer to exactly one infrastructure manager, which MUST be represented with a four-digit code."@en .
+  sh:targetNode "0083" ; # Valid Resource
+  sh:targetNode "HU55" ; # Invalid Resource
+  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df>. # Invalid Resource
+
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <pattern-era-001>
+    ) ;
+.
+<pattern-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of node pattern 001" ;
+  mf:action [
+      sht:dataGraph <pattern-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df> ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+			sh:sourceShape era-sh:imCodeS ;
+			sh:value <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df>
+        ] ;
+    sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode "HU55" ;
+			sh:resultPath era:imCode ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+			sh:sourceShape era-sh:imCodeS ;
+			sh:value "HU55"
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.
