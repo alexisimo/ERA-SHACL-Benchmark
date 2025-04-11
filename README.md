@@ -9,15 +9,21 @@ This is a real data SHACL engines benchmark. It is based on a real use case in t
 ### SHACL shapes
 ... -->
 
-## The features unitary test, and report quality benchmark
-From the whole set of SHACL shapes analysis multiple test cases were extracted as unitary tests of different features. The SHACL test suite shapes were taken as a base to formulate the subset of features this knowledge graph is capable to test. Not all the cases are covered. This unitary test, despite not covering all the test suite cases, presents new real cases not tested before.
+## The features unitary test
+From the whole set of SHACL shapes analysis multiple test cases were extracted as unitary tests of different SHACL-core and SHACL-SPARQL features. 
+
+This test suite was formulated based on the W3C SHACL test suite shapes. It consists of a subset of SHACL-core and SHACL-SPARQL shapes built for validating the ERA knowledge graph together with real failing triples extracted from it to test the engines' capabilities. e  were taken as a base to  Not all the cases are covered. This unitary test, despite not covering all the test suite cases, presents new real cases not tested before.
   
 The generated validation reports are the assets used to assess each engine capabilities. 
+
 
 ## The load and validation times, and memory consumption benchmark
 The aproximately 55 million triples of the knowledge graph are split into three orders of magnitude tests and validated against three distinct complexities subsets of SHACL shapes. Totalling nine combinations of experiments per engine.
 
-Each tested engine was configured to run in memory as recommended by their respective documentation. To ensure reproducibility and portability, the engines were included in the simplest library use case within a CLI application and packed in docker images. The loading and validation times were measured within each engine's operation using time measurement standard libraries in the corresponding programming language each library has been programmed with.
+Each tested engine was configured to run in memory as recommended by their respective documentation. To ensure reproducibility and portability, each library was included within a CLI application and packed in a docker image. The loading and validation times were measured within each engine's operation using time measurement standard libraries in the corresponding programming language each library has been programmed with.
+
+## The report quality benchmark
+TO DO...
 
 ## Usage instructions
 
