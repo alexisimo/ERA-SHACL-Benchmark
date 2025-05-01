@@ -1,0 +1,67 @@
+
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+
+# phaseInfoLength: # 1.1.1.2.4.1.2
+#  era-sh:PhaseInfoDatatypeTestShape sh:property era-sh:PhaseInfoLength.
+ era-sh:PhaseInfoLength
+	# a sh:PropertyShape ; era:affectedProperty era:phaseInfoLength  ;     era:affectedClass  era:Track;     era:scope "local";     era:validationAfterXML "false"^^xsd:boolean;
+  a sh:NodeShape ;
+	rdfs:comment "Indication of existence of phase separation and required information." ;
+  era:rinfIndex "1.1.1.2.4.1.2" ;
+	# sh:path (era:trackPhaseInfo era:phaseInfoLength) ;	
+  sh:datatype xsd:integer ;
+	# sh:severity sh:Violation ;
+  sh:targetNode ""^^xsd:integer ; # Invalid Resource
+  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>; # Invalid Resource
+	sh:message "Phase infolength (1.1.1.2.4.1.2): The track has a phase info with the length of the phase separation value (length), that must be an integer. This error may be due to the track having a value that is not an integer."@en .
+
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <message-era-001>
+    ) ;
+.
+<message-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of message 001" ;
+  rdfs:comment """
+  		Note: This test verifies that the sh:message is copied into sh:resultMessage.
+  		To pass this test, the test harness needs to preserve all sh:resultMessage triples
+  		that are mentioned in the 'expected' results graph.""" ;
+  mf:action [
+      sht:dataGraph <message-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+      sh:resultMessage "Phase infolength (1.1.1.2.4.1.2): The track has a phase info with the length of the phase separation value (length), that must be an integer. This error may be due to the track having a value that is not an integer."@en ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
+			sh:sourceShape era-sh:PhaseInfoLength ;
+      sh:value <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>
+        ] ;
+    sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode ""^^xsd:integer ;
+      sh:resultMessage "Phase infolength (1.1.1.2.4.1.2): The track has a phase info with the length of the phase separation value (length), that must be an integer. This error may be due to the track having a value that is not an integer."@en ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
+			sh:sourceShape era-sh:PhaseInfoLength ;
+      sh:value ""^^xsd:integer
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

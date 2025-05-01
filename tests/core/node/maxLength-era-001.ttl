@@ -1,0 +1,66 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+# era-sh:tunnelsShape
+# 	a sh:NodeShape ;
+# 	# sh:targetClass era:Tunnel .
+#     sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/010d574ec33c941487e788741459394ed983171e> ; # Valid Resource
+#     sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/08709321a46939b5b4ead46056d2d558160abd86> ; # Synthetic Valid Resource
+#     sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/0216a7cb8aa627482be15180128a928f1ad88896>. # Synthetic Invalid Resource
+
+# imCode: # 1.1.1.1.8.1, 1.2.1.0.5.1
+# era-sh:tunnelsShape sh:property era-sh:imCodeT .
+era-sh:imCodeT
+    # a sh:PropertyShape ;
+    a sh:NodeShape ;
+    era:affectedProperty era:imCode;
+    era:affectedClass era:Tunnel;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+    rdfs:comment "Each Tunnel can only be submitted by one infrastructure manager, represented by a four-digit code." ;
+    era:rinfIndex "1.1.1.1.8.1", "1.2.1.0.5.1" ;
+    # sh:path era:imCode ;           
+    # sh:minCount 1 ;
+    # sh:maxCount 1 ;
+    # sh:datatype xsd:string ;
+    # sh:minLength 4 ;
+    sh:maxLength 4 ;
+    # sh:severity sh:Violation ;
+    # sh:message "imCode (1.1.1.1.8.1, 1.2.1.0.5.1): Each Tunnel must refer to only one infrastructure manager, which MUST be represented with a four-digit code. This error may be due to having a Tunnel with no infrastructure manager associated, with more than one infrastructure managers, or with a code that has a different length."@en .
+    sh:targetNode "0074" ; # Valid Resource
+    sh:targetNode "085" ; # Synthetic Valid Resource
+    sh:targetNode "00745". # Synthetic Invalid Resource
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <maxLength-era-001>
+    ) ;
+.
+<maxLength-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of node maxLength 001" ;
+  mf:action [
+      sht:dataGraph <maxLength-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+            sh:focusNode "00745" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent  sh:MaxLengthConstraintComponent ;
+            sh:sourceShape era-sh:imCodeT ;
+            sh:value "00745"
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

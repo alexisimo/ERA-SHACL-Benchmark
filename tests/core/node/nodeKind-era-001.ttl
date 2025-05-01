@@ -1,0 +1,57 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+# era-sh:tunnelsShape
+# 	a sh:NodeShape ;
+	# sh:targetClass era:Tunnel .
+
+# rollingStockFireCategory: # 1.1.1.1.8.10
+# era-sh:tunnelsShape sh:property era-sh:rollingStockFireCategoryP .
+era-sh:rollingStockFireCategoryP
+	# a sh:PropertyShape ;
+    a sh:NodeShape ;
+    era:affectedProperty era:rollingStockFireCategory;
+    era:affectedClass era:Tunnel;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Categorisation on how a passenger train with a fire on board will continue to operate for a defined time period" ;
+	era:rinfIndex "1.1.1.1.8.10" ;
+	# sh:path era:rollingStockFireCategory ;
+    # sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	# sh:severity sh:Violation ;
+	# sh:message "rollingStockFireCategory (1.1.1.1.8.10): A Tunnel may have an indication about the rollingStockFireCategory. This error may be due to having a tunnel without a rollingStockFireCategory declaration or having a literal as value. This error may be due to a tunnel having more than one value."@en .
+    sh:targetNode <http://data.europa.eu/949/concepts/rolling-stock-fire/rinf/30> ; # Valid resource
+    sh:targetNode "not-an-IRI" . # Synthetic invalid resource
+
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <nodeKind-era-001>
+    ) ;
+.
+<nodeKind-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of sh:nodeKind at node shape 001" ;
+  mf:action [
+      sht:dataGraph <nodeKind-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  sh:result [ 
+			rdf:type sh:ValidationResult ; 
+            sh:focusNode "not-an-IRI" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent  sh:NodeKindConstraintComponent ;
+            sh:sourceShape era-sh:rollingStockFireCategoryP ;
+            sh:value "not-an-IRI"
+        ] ;
+   mf:status sht:proposed ;
+.
+

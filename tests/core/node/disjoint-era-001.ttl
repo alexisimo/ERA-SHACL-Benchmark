@@ -1,0 +1,59 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+#opStart: # 1.1.0.0.0.3
+# era-sh:SectionOfLineShape sh:property era-sh:opStart .
+era-sh:opStart
+    # a sh:PropertyShape ;
+    a sh:NodeShape ;
+    era:affectedProperty era:opStart;
+    era:affectedClass era:SectionOfLine;
+    era:scope "global";
+    era:validationAfterXML "false"^^xsd:boolean;
+    rdfs:comment "Each SoL may have only one start OP, and each OP has unique OP ID within the MS. The “uniqueOPID” is defined in parameter 1.2.0.0.0.2. Each SoL has the principal direction of the traffic defined by increasing kilometres running from the start OP to the end OP. That is why the start OP is always located at lowest kilometre of the line within the SoL. Data collected in the UK in miles will be transformed to km for uploading to the RINF application. \n The OP ID must exist in the MS file of RINF. The value of this parameter must be different from 1.1.0.0.0.4. No validation will be performed by RINF application regarding which is the start and which the end OP. This requires national verification." ;
+    era:rinfIndex "1.1.0.0.0.3" ;
+    # sh:path era:opStart ; 
+    sh:disjoint era:opEnd ; # value must be different to opEnd
+    # sh:minCount 1 ; checked in ea-sh:opStartExists
+    # sh:maxCount 1 ;
+    # sh:nodeKind sh:IRI ;
+    # sh:severity sh:Violation ;
+    # sh:message "opStart (1.1.0.0.0.3): There must be at most one OP start for this section of line and it must be different from the OP end."@en .
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sectionsOfLine/395e932c196ccac8430d6a1f9dc65c845e41a4f0> ;
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sectionsOfLine/a4fb948e261140ec29d804ca771987dc424aeea5> ;
+    # sh:targetClass era:SectionOfLine ;
+.
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <disjoint-era-001>
+    ) ;
+.
+<disjoint-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of node disjoint 001" ;
+  mf:action [
+      sht:dataGraph <disjoint-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sectionsOfLine/a4fb948e261140ec29d804ca771987dc424aeea5> ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent  sh:DisjointConstraintComponent ;
+            sh:sourceShape era-sh:opStart ;
+            sh:value <http://data.europa.eu/949/functionalInfrastructure/sectionsOfLine/a4fb948e261140ec29d804ca771987dc424aeea5>
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

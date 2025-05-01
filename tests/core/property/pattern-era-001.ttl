@@ -42,7 +42,7 @@ era-sh:imCodeS
   rdf:type sht:Validate ;
   rdfs:label "Test of property pattern 001" ;
   mf:action [
-      sht:dataGraph <test_subset.ttl> ;
+      sht:dataGraph <pattern-era-001-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
   mf:result [

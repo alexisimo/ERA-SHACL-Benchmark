@@ -46,7 +46,7 @@ era-sh:lat
   rdf:type sht:Validate ;
   rdfs:label "Test of property minInclusive 001" ;
   mf:action [
-      sht:dataGraph <test_subset.ttl> ;
+      sht:dataGraph <minInclusive-era-001-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
   mf:result [

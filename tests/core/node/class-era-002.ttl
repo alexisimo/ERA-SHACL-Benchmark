@@ -31,7 +31,7 @@ era-sh:localRulesOrRestrictionsDoc
 	# sh:targetClass era:OperationalPoint ;
 	# sh:path era:localRulesOrRestrictionsDoc ;
 	# # sh:minCount 0 ;
-	sh:class <http://xmlns.com/foaf/0.1/Document>;
+	sh:class era:Document;
 	# sh:severity sh:Violation ; # Not in the test scope
 	# sh:message "localRulesOrRestrictionsDoc (1.2.3.2): The Operational Point has a localRulesOrRestrictionsDoc reference that must be a Document."@en . # Not in the test scope
 	sh:targetNode <http://data.europa.eu/949/documents/b4e2b5340d9c2086affeabbf1f6f427f0112ccdd>; # Valid Resource
@@ -40,14 +40,14 @@ era-sh:localRulesOrRestrictionsDoc
 <>
   rdf:type mf:Manifest ;
   mf:entries (
-      <class-era-001>
+      <class-era-002>
     ) ;
 .
-<class-era-001>
+<class-era-002>
   rdf:type sht:Validate ;
   rdfs:label "Test of sh:class at node shape 001" ;
   mf:action [
-      sht:dataGraph <class-era-001-data.ttl> ;
+      sht:dataGraph <class-era-002-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
   mf:result [

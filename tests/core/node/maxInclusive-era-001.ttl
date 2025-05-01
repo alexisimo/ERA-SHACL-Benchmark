@@ -1,0 +1,71 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+
+# maximumPermittedSpeed: # 1.1.1.1.2.5
+era-sh:MaximumPermittedSpeed
+	# a sh:PropertyShape ; 
+    a sh:NodeShape ;
+    era:affectedProperty era:maximumPermittedSpeed;
+    era:affectedClass  era:Track;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Maximum permitted speed." ;
+	era:rinfIndex "1.1.1.1.2.5" ;
+	# sh:path era:maximumPermittedSpeed ;
+	# sh:maxCount 1 ;
+	# sh:datatype xsd:integer ;
+	# sh:minInclusive 0 ;
+	sh:maxInclusive 500 ;
+	# sh:severity sh:Violation ;
+	# sh:message "maximumPermittedSpeed (1.1.1.1.2.5): The track must have at most one value of maximum permitted speed that is  an integer that lies within the range 0 to 500. This error may be due to the track having more than one value of maximum permitted speed, that the value does not lie within the range, or that the value is not an integer."@en .
+    sh:targetNode "320"^^<http://www.w3.org/2001/XMLSchema#integer> ; # Valid Resource
+    sh:targetNode "500"^^<http://www.w3.org/2001/XMLSchema#integer> ; # Synthetic Valid Resource
+    sh:targetNode 500.0 ; # Synthetic Valid Resource
+    sh:targetNode "510"^^<http://www.w3.org/2001/XMLSchema#integer> ; # Synthetic Invalid Resource
+    sh:targetNode "a" . # Synthetic Invalid Resource
+
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <maxInclusive-era-001>
+    ) ;
+.
+<maxInclusive-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of node maxInclusive 001" ;
+  mf:action [
+      sht:dataGraph <maxInclusive-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+            sh:focusNode 510 ;
+            sh:resultPath era:maximumPermittedSpeed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent  sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape era-sh:MaximumPermittedSpeed ;
+            sh:value 510
+        ] ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+            sh:focusNode "a" ;
+            sh:resultPath era:maximumPermittedSpeed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape era-sh:MaximumPermittedSpeed ;
+            sh:value "a"
+        ] ;      
+    ] ;
+   mf:status sht:proposed ;
+.

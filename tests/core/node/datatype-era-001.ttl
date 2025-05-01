@@ -8,37 +8,34 @@
 @prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
 @prefix sht: <http://www.w3.org/ns/shacl-test#> .
 
-era-sh:PhaseInfoDatatypeTestShape
-    a sh:NodeShape ;
-    # sh:targetClass era:PhaseInfo .
-    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/Vilnius-Kena-BY_LTKena_II_EU00250_distancetypeMAXlength270switchoffbreakerYlowerpantographNchangesupplysystemNkm034.780> ; # Valid Resource
-    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>. # Invalid Resource
 
 # phaseInfoLength: # 1.1.1.2.4.1.2
- era-sh:PhaseInfoDatatypeTestShape sh:property era-sh:PhaseInfoLength.
+#  era-sh:PhaseInfoDatatypeTestShape sh:property era-sh:PhaseInfoLength.
  era-sh:PhaseInfoLength
-	a sh:PropertyShape ; era:affectedProperty era:phaseInfoLength  ;     era:affectedClass  era:Track;     era:scope "local";     era:validationAfterXML "false"^^xsd:boolean;
-	era:affectedClass  era:PhaseInfo;
+	# a sh:PropertyShape ; era:affectedProperty era:phaseInfoLength  ;     era:affectedClass  era:Track;     era:scope "local";     era:validationAfterXML "false"^^xsd:boolean;
+  a sh:NodeShape ;
 	rdfs:comment "Indication of existence of phase separation and required information." ;
   era:rinfIndex "1.1.1.2.4.1.2" ;
-	# sh:path (era:trackPhaseInfo era:phaseInfoLength) ;
-	sh:path era:phaseInfoLength ;
+	# sh:path (era:trackPhaseInfo era:phaseInfoLength) ;	
   sh:datatype xsd:integer ;
 	# sh:severity sh:Violation ;
+  sh:targetNode "270"^^<http://www.w3.org/2001/XMLSchema#integer> ; #<http://data.europa.eu/949/functionalInfrastructure/phaseInfo/Vilnius-Kena-BY_LTKena_II_EU00250_distancetypeMAXlength270switchoffbreakerYlowerpantographNchangesupplysystemNkm034.780> ; # Valid Resource
+  sh:targetNode ""^^xsd:integer ; # Invalid Resource
+  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>. # Invalid Resource
 	# sh:message "Phase infolength (1.1.1.2.4.1.2): The track has a phase info with the length of the phase separation value (length), that must be an integer. This error may be due to the track having a value that is not an integer."@en .
-.
+
 
 <>
   rdf:type mf:Manifest ;
   mf:entries (
-      <datatype-era-002>
+      <datatype-era-001>
     ) ;
 .
-<datatype-era-002>
+<datatype-era-001>
   rdf:type sht:Validate ;
-  rdfs:label "Test of sh:datatype at property shape 001" ;
+  rdfs:label "Test of sh:datatype at node shape 001" ;
   mf:action [
-      sht:dataGraph <datatype-era-002-data.ttl> ;
+      sht:dataGraph <datatype-era-001-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
   mf:result [
@@ -51,7 +48,16 @@ era-sh:PhaseInfoDatatypeTestShape
 			sh:resultSeverity sh:Violation ;
 			sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
 			sh:sourceShape era-sh:PhaseInfoLength ;
-            sh:value ""^^xsd:integer
+      sh:value <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN>
+        ] ;
+    sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode ""^^xsd:integer ;
+			sh:resultPath era:phaseInfoLength ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
+			sh:sourceShape era-sh:PhaseInfoLength ;
+      sh:value ""^^xsd:integer
         ] ;
     ] ;
    mf:status sht:proposed ;

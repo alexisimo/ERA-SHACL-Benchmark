@@ -15,6 +15,21 @@ era-sh:trackShape
     sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>; # Invalid Resource
 	sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/07946c41d18b51d16a9fa7013dc13d30e3374c39>. # Valid Resource
 
+era-sh:EraPrefixesDeclaration
+    a sh:PrefixDeclaration ;
+    sh:declare [
+                sh:prefix    "era" ;
+                sh:namespace "http://data.europa.eu/949/"^^xsd:anyURI ;
+        ] ;
+    sh:declare [
+                sh:prefix    "skos" ;
+                sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+        ] ;
+    sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+        ] ;
+    .
 
 # protectionLegacySystem: # 1.1.1.3.5.3
 era-sh:trackShape sh:sparql era-sh:ProtectionLegacySystemSKOS.
@@ -26,10 +41,8 @@ era-sh:ProtectionLegacySystemSKOS
 	# sh:severity sh:Violation ;
     # sh:message "Indication of the protectionLegacySystem (1.1.1.3.5.3): The track {$this}  has a value {?concept} that is not one of the predefined values and cannot be converted into a SKOS concept on this list:  http://data.europa.eu/949/concepts/train-protection-legacy-systems/TrainProtectionLegacySystems."@en ;
     # sh:prefixes era:;
+    sh:prefixes era-sh:EraPrefixesDeclaration ;
 	sh:select """
-    PREFIX era: <http://data.europa.eu/949/>
-    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     SELECT $this  ?concept
     WHERE {
         $this era:protectionLegacySystem ?concept .
@@ -43,14 +56,14 @@ era-sh:ProtectionLegacySystemSKOS
 <>
   rdf:type mf:Manifest ;
   mf:entries (
-      <sparql-era-001>
+      <prefixes-era-001>
     ) ;
 .
-<sparql-era-001>
+<prefixes-era-001>
   rdf:type sht:Validate ;
-  rdfs:label "Test of property sparql 001" ;
+  rdfs:label "Test of prefixes declaration 001" ;
   mf:action [
-      sht:dataGraph <sparql-era-001-data.ttl> ;
+      sht:dataGraph <prefixes-era-001-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
   mf:result [

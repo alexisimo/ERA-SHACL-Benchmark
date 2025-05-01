@@ -33,6 +33,7 @@ era-sh:long
 	# sh:severity sh:Violation ;
 	# sh:message "wgs:long property. This error may be due to having a Geometry without or with more than one long property or it value is out of the longitude range of Europe." .
     sh:targetNode "+5.0966"^^<http://www.w3.org/2001/XMLSchema#double> ; # Valid Resource
+    sh:targetNode "+49.2266"^^<http://www.w3.org/2001/XMLSchema#double> ; # Invalid Resource
     sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055>. # Invalid Resource
 
 <>
@@ -59,6 +60,15 @@ era-sh:long
             sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
             sh:sourceShape era-sh:long ;
             sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055>
+        ] ;
+      sh:result [ 
+			rdf:type sh:ValidationResult ;
+            sh:focusNode "+49.2266"^^xsd:double ;
+            sh:resultPath wgs:long ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+            sh:sourceShape era-sh:long ;
+            sh:value "+49.2266"^^xsd:double
         ] ;
     ] ;
    mf:status sht:proposed ;

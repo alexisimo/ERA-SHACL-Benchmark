@@ -1,0 +1,63 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+
+era-sh:operationalpointsShape
+	a sh:NodeShape ;
+	# sh:targetClass era:OperationalPoint.
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/08406a7d4a515914e456268db99304767fa7c1bb> ; # Valid node
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/8fb9a95852ddf67349c2a794d3e2059ba3004808> . # Synthetic invalid resource
+    
+# opName: # 1.2.0.0.0.1
+era-sh:operationalpointsShape sh:property era-sh:opName .
+era-sh:opName
+	a sh:PropertyShape;
+    era:affectedClass era:OperationalPoint;
+    era:affectedProperty era:opName ;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Name normally related to the town or village or to traffic control purpose." ;
+	era:rinfIndex "1.2.0.0.0.1" ;
+	sh:path era:opName ;
+	sh:minCount 1 ;
+    # sh:maxCount 1 ;
+	# sh:datatype xsd:string ;
+	# sh:severity sh:Violation ;
+	# sh:message "opName (1.2.0.0.0.1): There has to be one opName as most, and it must be represented as a String."@en .
+.
+
+
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <minCount-era-001>
+    ) ;
+.
+<minCount-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of sh:minCount at property shape 001" ;
+  mf:action [
+      sht:dataGraph <minCount-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/8fb9a95852ddf67349c2a794d3e2059ba3004808> ;
+			sh:resultPath era:opName ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+			sh:sourceShape era-sh:opName
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

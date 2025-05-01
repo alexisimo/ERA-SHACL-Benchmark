@@ -1,0 +1,60 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix sht: <http://www.w3.org/ns/shacl-test#> .
+
+era-sh:trackShape  
+    a sh:NodeShape ;
+    # sh:targetClass era:Track .
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/0051fa1b696e840e75d27d87c98a4178199da790> ; # Valid resource
+    sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> . # Invalid synthetic resource
+
+# minimumTemperature: # 1.1.1.1.2.6
+era-sh:trackShape sh:property era-sh:MinimumTemperature.
+era-sh:MinimumTemperature
+	a sh:PropertyShape ; 
+    era:affectedProperty era:minimumTemperature;
+    era:affectedClass  era:Track;
+    era:scope "local";
+    era:validationAfterXML "false"^^xsd:boolean;
+	rdfs:comment "Maximum permitted speed." ;
+	rdfs:comment "Minimum temperature for unrestricted access to the line according European standard." ;
+	era:rinfIndex "1.1.1.1.2.6" ;
+	sh:path era:minimumTemperature ;
+	sh:maxCount 1 ;
+	# sh:datatype xsd:integer ;
+	# sh:severity sh:Violation ;
+	# sh:message "minimumTemperature (1.1.1.1.2.6): The track must have at most one value of minimum temperature value that is an integer. This error may be due to the track having more than one value of minimum temperature or that the value is not an integer."@en .
+.
+
+<>
+  rdf:type mf:Manifest ;
+  mf:entries (
+      <maxCount-era-001>
+    ) ;
+.
+<maxCount-era-001>
+  rdf:type sht:Validate ;
+  rdfs:label "Test of sh:maxCount at property shape 001" ;
+  mf:action [
+      sht:dataGraph <maxCount-era-001-data.ttl> ;
+      sht:shapesGraph <> ;
+    ] ;
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+	  sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> ;
+			sh:resultPath era:minimumTemperature ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
+			sh:sourceShape era-sh:MinimumTemperature
+        ] ;
+    ] ;
+   mf:status sht:proposed ;
+.

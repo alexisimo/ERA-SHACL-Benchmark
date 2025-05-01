@@ -33,6 +33,7 @@ era-sh:lat
 	# sh:severity sh:Violation ;
 	# sh:message "wgs:lat property. This error may be due to having a Geometry without or with more than one lat property or it value is out of the latitude range of Europe." .
   sh:targetNode "52.0988"^^<http://www.w3.org/2001/XMLSchema#double> ; # Valid Resource
+  sh:targetNode "16.6055"^^<http://www.w3.org/2001/XMLSchema#double> ; # Invalid Resource
   sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055>; # Invalid Resource
 .
 
@@ -61,6 +62,15 @@ era-sh:lat
 			sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
 			sh:sourceShape era-sh:lat ;
 			sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055>
+        ] ;
+    sh:result [ 
+			rdf:type sh:ValidationResult ;
+			sh:focusNode "16.6055"^^xsd:double ;
+			sh:resultPath wgs:lat ;
+			sh:resultSeverity sh:Violation ;
+			sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
+			sh:sourceShape era-sh:lat ;
+			sh:value "16.6055"^^xsd:double
         ] ;
     ] ;
    mf:status sht:proposed ;
