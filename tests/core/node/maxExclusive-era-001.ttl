@@ -55,7 +55,6 @@ era-sh:long
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
             sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
-            sh:resultPath wgs:long ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
             sh:sourceShape era-sh:long ;
@@ -64,7 +63,6 @@ era-sh:long
       sh:result [ 
 			rdf:type sh:ValidationResult ;
             sh:focusNode "+49.2266"^^xsd:double ;
-            sh:resultPath wgs:long ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
             sh:sourceShape era-sh:long ;

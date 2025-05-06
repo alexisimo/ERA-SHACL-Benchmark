@@ -51,7 +51,6 @@ era-sh:MaximumPermittedSpeed
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
             sh:focusNode 510 ;
-            sh:resultPath era:maximumPermittedSpeed ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraintComponent  sh:MaxInclusiveConstraintComponent ;
             sh:sourceShape era-sh:MaximumPermittedSpeed ;
@@ -60,7 +59,6 @@ era-sh:MaximumPermittedSpeed
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
             sh:focusNode "a" ;
-            sh:resultPath era:maximumPermittedSpeed ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
             sh:sourceShape era-sh:MaximumPermittedSpeed ;

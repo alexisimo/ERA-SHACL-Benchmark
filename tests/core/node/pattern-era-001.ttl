@@ -31,7 +31,7 @@ era-sh:imCodeS
 	# sh:message "imCode (1.2.2.0.0.1): Each Siding must refer to exactly one infrastructure manager, which MUST be represented with a four-digit code."@en .
   sh:targetNode "0083" ; # Valid Resource
   sh:targetNode "HU55" ; # Invalid Resource
-  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df>. # Invalid Resource
+  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932>. # Invalid Resource
 
 
 <>
@@ -52,16 +52,15 @@ era-sh:imCodeS
       sh:conforms "false"^^xsd:boolean ;
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
-			sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df> ;
+			sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932> ;
 			sh:resultSeverity sh:Violation ;
 			sh:sourceConstraintComponent sh:PatternConstraintComponent ;
 			sh:sourceShape era-sh:imCodeS ;
-			sh:value <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df>
+			sh:value <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932>
         ] ;
     sh:result [ 
 			rdf:type sh:ValidationResult ;
 			sh:focusNode "HU55" ;
-			sh:resultPath era:imCode ;
 			sh:resultSeverity sh:Violation ;
 			sh:sourceConstraintComponent sh:PatternConstraintComponent ;
 			sh:sourceShape era-sh:imCodeS ;

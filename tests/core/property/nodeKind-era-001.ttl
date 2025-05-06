@@ -43,7 +43,10 @@ era-sh:rollingStockFireCategoryP
       sht:dataGraph <nodeKind-era-001-data.ttl> ;
       sht:shapesGraph <> ;
     ] ;
-  sh:result [ 
+  mf:result [
+      rdf:type sh:ValidationReport ;
+      sh:conforms "false"^^xsd:boolean ;
+      sh:result [ 
 			rdf:type sh:ValidationResult ; 
             sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/010d574ec33c941487e788741459394ed983171e> ;
             sh:resultPath era:rollingStockFireCategory ;
@@ -52,6 +55,7 @@ era-sh:rollingStockFireCategoryP
             sh:sourceShape era-sh:rollingStockFireCategoryP ;
             sh:value "not-an-IRI"
         ] ;
+    ] ;
    mf:status sht:proposed ;
 .
 

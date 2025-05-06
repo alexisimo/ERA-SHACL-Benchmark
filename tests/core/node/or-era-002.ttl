@@ -63,7 +63,6 @@
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
             sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4> ;
-            # sh:resultPath ( era:trackPhaseInfo era:phaseInfoDistanceType ) ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraintComponent  sh:OrConstraintComponent ;
             sh:sourceShape era-sh:PhaseInfoDistanceType ;

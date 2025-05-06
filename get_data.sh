@@ -252,12 +252,12 @@ echo "# maxCount-era-001 valid resource" > tests/core/property/maxCount-era-001-
 grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/0051fa1b696e840e75d27d87c98a4178199da790>" data/ERA.ttl >> tests/core/property/maxCount-era-001-data.ttl
 echo "# maxCount-era-001 syntethic invalid resource" >> tests/core/property/maxCount-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d>" data/ERA.ttl >> tests/core/property/maxCount-era-001-data.ttl
-echo "<http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> <http://data.europa.eu/949/minimumTemperature> \"-20\"^^<http://www.w3.org/2001/XMLSchema#integer>" >> tests/core/property/maxCount-era-001-data.ttl
+echo "<http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> <http://data.europa.eu/949/minimumTemperature> \"-20\"^^<http://www.w3.org/2001/XMLSchema#integer>." >> tests/core/property/maxCount-era-001-data.ttl
 
 echo "Getting minCount-era-001 test resources..."
 echo "# minCount-era-001 valid resource" > tests/core/property/minCount-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/operationalPoints/08406a7d4a515914e456268db99304767fa7c1bb>" data/ERA.ttl >> tests/core/property/minCount-era-001-data.ttl
-echo "# minCount-era-001 synthetic invalid resource" > tests/core/property/minCount-era-001-data.ttl
+echo "# minCount-era-001 synthetic invalid resource" >> tests/core/property/minCount-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/operationalPoints/8fb9a95852ddf67349c2a794d3e2059ba3004808>" data/ERA.ttl >> tests/core/property/minCount-era-001-data.ttl
 sed -i 's_<http://data.europa.eu/949/functionalInfrastructure/operationalPoints/8fb9a95852ddf67349c2a794d3e2059ba3004808> <http://data.europa.eu/949/opName> "Lernacken"._#removed_' tests/core/property/minCount-era-001-data.ttl
 
@@ -268,6 +268,7 @@ echo "# nodeKind-era-001 synthetic invalid resource" >> tests/core/property/node
 grep "<http://data.europa.eu/949/functionalInfrastructure/tunnels/010d574ec33c941487e788741459394ed983171e>" data/ERA.ttl >> tests/core/property/nodeKind-era-001-data.ttl
 echo "<http://data.europa.eu/949/functionalInfrastructure/tunnels/010d574ec33c941487e788741459394ed983171e> <http://data.europa.eu/949/rollingStockFireCategory> \"not-an-IRI\"." >> tests/core/property/nodeKind-era-001-data.ttl
 cp tests/core/property/nodeKind-era-001-data.ttl tests/core/node/nodeKind-era-001-data.ttl
+
 # Free disk space
 echo "Cleaning directories..."
 rm -r data/raw

@@ -51,9 +51,8 @@
 	  sh:result [ 
 			rdf:type sh:ValidationResult ;
             sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
-            sh:resultPath era:phaseInfoDistanceType ;
             sh:resultSeverity sh:Violation ;
-            sh:sourceConstraintComponent  sh:OrConstraintComponent ;
+            sh:sourceConstraintComponent  sh:HasValueConstraintComponent ;
             sh:sourceShape era-sh:PhaseInfoDistanceType
         ] ;
     ] ;

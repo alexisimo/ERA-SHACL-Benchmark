@@ -25,11 +25,11 @@ era-sh:MinimumTemperature
 	rdfs:comment "Minimum temperature for unrestricted access to the line according European standard." ;
 	era:rinfIndex "1.1.1.1.2.6" ;
 	sh:path era:minimumTemperature ;
-	sh:maxCount 1 ;
+	sh:maxCount 1 .
 	# sh:datatype xsd:integer ;
 	# sh:severity sh:Violation ;
 	# sh:message "minimumTemperature (1.1.1.1.2.6): The track must have at most one value of minimum temperature value that is an integer. This error may be due to the track having more than one value of minimum temperature or that the value is not an integer."@en .
-.
+
 
 <>
   rdf:type mf:Manifest ;
