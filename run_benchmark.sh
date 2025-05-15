@@ -1,12 +1,12 @@
 #!/bin/bash
 
-for engine in dotnet_rdf ; do # $(ls -d engines/*/ | cut -f2 -d'/'); do # jena topbraid rdf4j rdfunit dotnet_rdf pyshacl corese trav_shacl
+for engine in maplib jena topbraid rdf4j rdfunit dotnet_rdf pyshacl corese ; do # $(ls -d engines/*/ | cut -f2 -d'/'); do
     echo $engine
     mkdir ./results/$engine
     mkdir ./results/$engine/reports
 
-    for subset in ./data/ES.ttl ./data/FR.ttl; do #./data/*.ttl; do
-        for shape in ./shapes/*.ttl; do
+    for subset in ./data/ES.ttl ./data/FR.ttl ./data/ERA.ttl; do # #./data/*.ttl; do
+        for shape in ./shapes/tds_shapes.ttl ./shapes/core_shapes.ttl /shapes/era_shapes.ttl ; do # ./shapes/*.ttl; do
             echo "loading, validation, memory_usage" > ./results/$engine/$(basename "$subset" .ttl)_$(basename "$shape" _shapes.ttl)_results.csv ;
             for ((i=0; i<=5; i++)); do
                 echo \-\> $engine "experiment" $(basename "$subset" .ttl)-$(basename "$shape" _shapes.ttl) run $i;

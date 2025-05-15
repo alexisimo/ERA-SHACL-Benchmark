@@ -1,0 +1,21 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix era:   <http://data.europa.eu/949/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix mf:    <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sht:   <http://www.w3.org/ns/shacl-test#> .
+
+[ a            sh:ValidationReport ;
+  sh:conforms  false ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  <http://data.europa.eu/949/functionalInfrastructure/sectionsOfLine/a4fb948e261140ec29d804ca771987dc424aeea5> ;
+                 sh:resultMessage              "Disjoint[<http://data.europa.eu/949/opEnd>]: not disjoint: <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/FR0000001897> is in [http://data.europa.eu/949/functionalInfrastructure/operationalPoints/FR0000001897, http://data.europa.eu/949/functionalInfrastructure/operationalPoints/FR0000002651]" ;
+                 sh:resultPath                 era:opStart ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:DisjointConstraintComponent ;
+                 sh:sourceShape                era-sh:opStart ;
+                 sh:value                      <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/FR0000001897>
+               ]
+] .

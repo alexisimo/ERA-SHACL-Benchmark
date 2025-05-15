@@ -1,0 +1,24 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:2f78e926-c367-44ce-b00e-3bb3f030fb10> a sh:ValidationResult ;
+  sh:focusNode "HU55" ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/imCodeS> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Siding> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/imCode> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.2.2.0.0.1\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Infrastructure manager means any body or undertaking that is responsible in particular for establishing and maintaining railway infrastructure or a part thereof\" ;\n  sh:pattern \"^[0-9]{4}$\" ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932> ;\n  sh:targetNode \"0083\" ;\n  sh:targetNode \"HU55\"" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS> ;
+  sh:value "HU55" .
+
+<urn:uuid:bd2ea3cc-2421-4608-a736-ad4879ea9359> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/imCodeS> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Siding> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/imCode> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.2.2.0.0.1\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Infrastructure manager means any body or undertaking that is responsible in particular for establishing and maintaining railway infrastructure or a part thereof\" ;\n  sh:pattern \"^[0-9]{4}$\" ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932> ;\n  sh:targetNode \"0083\" ;\n  sh:targetNode \"HU55\"" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS> ;
+  sh:value <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932> .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:2f78e926-c367-44ce-b00e-3bb3f030fb10> ;
+  sh:result <urn:uuid:bd2ea3cc-2421-4608-a736-ad4879ea9359>] .
+

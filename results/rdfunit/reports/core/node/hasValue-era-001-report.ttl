@@ -1,0 +1,55 @@
+<urn:uuid:8f530f3c-2db4-11b2-80b6-0242ac110003/8f530f41-2db4-11b2-80b6-0242ac110003>
+        a       <http://rdfunit.aksw.org/ns/core#TestCaseResult> , <http://www.w3.org/ns/shacl#ValidationResult> ;
+        <http://purl.org/dc/terms/date>
+                "2025-05-06T14:23:57.767Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://rdfunit.aksw.org/ns/core#testCase>
+                <urn:uuid:8f530f3d-2db4-11b2-80b6-0242ac110003> ;
+        <http://www.w3.org/ns/prov#wasGeneratedBy>
+                <urn:uuid:8f530f3c-2db4-11b2-80b6-0242ac110003> ;
+        <http://www.w3.org/ns/shacl#focusNode>
+                <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+        <http://www.w3.org/ns/shacl#message>
+                "should have value \"MAX\"" ;
+        <http://www.w3.org/ns/shacl#resultMessage>
+                "should have value {$hasValue}" ;
+        <http://www.w3.org/ns/shacl#resultSeverity>
+                <http://www.w3.org/ns/shacl#Violation> ;
+        <http://www.w3.org/ns/shacl#severity>
+                <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#ERROR> ;
+        <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                <http://www.w3.org/ns/shacl#HasValueConstraintComponent> ;
+        <http://www.w3.org/ns/shacl#sourceShape>
+                <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> ;
+        <http://www.w3.org/ns/shacl#value>
+                <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> .
+
+<urn:uuid:8f530f3c-2db4-11b2-80b6-0242ac110003>
+        a       <http://www.w3.org/ns/shacl#ValidationReport> , <http://www.w3.org/ns/prov#Activity> , <http://rdfunit.aksw.org/ns/core#TestExecution> ;
+        <http://rdfunit.aksw.org/ns/core#executionType>
+                "shaclTestCaseResult" ;
+        <http://rdfunit.aksw.org/ns/core#source>
+                <custom> ;
+        <http://rdfunit.aksw.org/ns/core#testsError>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsFailed>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsRun>
+                "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsSuceedded>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsTimeout>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#totalIndividualErrors>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://www.w3.org/ns/prov#endedAtTime>
+                "2025-05-06T14:23:57.771Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#startedAtTime>
+                "2025-05-06T14:23:57.722Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#wasAssociatedWith>
+                <../data/core/node/hasValue-era-001.ttl> ;
+        <http://www.w3.org/ns/prov#wasStartedBy>
+                <http://localhost/> ;
+        <http://www.w3.org/ns/shacl#conforms>
+                false ;
+        <http://www.w3.org/ns/shacl#result>
+                <urn:uuid:8f530f3c-2db4-11b2-80b6-0242ac110003/8f530f41-2db4-11b2-80b6-0242ac110003> .

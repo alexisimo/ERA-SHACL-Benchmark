@@ -1,0 +1,25 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] a sh:ValidationReport;
+  sh:conforms false;
+  rdf4j:truncated false;
+  sh:result [ a sh:ValidationResult;
+      sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/a7a2ce92523c7c250b0bb25a6e7a2a31b82acc8c>;
+      rsx:shapesGraph rdf4j:SHACLShapeGraph;
+      sh:value <http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe>;
+      sh:resultPath <http://data.europa.eu/949/localRulesOrRestrictionsDoc>;
+      sh:sourceConstraintComponent sh:ClassConstraintComponent;
+      sh:resultSeverity sh:Violation;
+      sh:sourceShape <http://data.europa.eu/949/shapes/localRulesOrRestrictionsDoc>
+    ] .
+
+<http://data.europa.eu/949/shapes/localRulesOrRestrictionsDoc> a sh:PropertyShape;
+  sh:path <http://data.europa.eu/949/localRulesOrRestrictionsDoc>;
+  sh:class <http://data.europa.eu/949/Document> .

@@ -1,0 +1,15 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos5 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:MaxCountConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "There must be no more than 1 values." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/MinimumTemperature> ; 
+                    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> ; 
+                    sh:resultPath <http://data.europa.eu/949/minimumTemperature>].
+

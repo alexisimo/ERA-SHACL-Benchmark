@@ -40,8 +40,6 @@ def maplib_validate(DATA, SHAPES, REPORT):
 
     vres_graph = rdflib.Graph()
     with open(os.path.splitext(REPORT)[0]+".nt", "r", encoding="utf-8") as file:
-    #     content = re.sub(r'\\"', '"', file.read()) # fixing an error in maplib nt writer
-    #     vres_graph.parse(data=content, format="nt")
         vres_graph.parse(data=file.read(),format="nt")    
     vres_graph.serialize(format="turtle", destination=REPORT)
 

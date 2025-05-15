@@ -1,0 +1,17 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:28b568ea-0c71-48a2-bac6-3b888443835c> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/PhaseInfo> ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Track> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/phaseInfoDistanceType> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.2.4.1.2\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Indication of existence of phase separation and required information.\" ;\n  sh:or ([sh:hasValue \"MIN\"]\n  [sh:hasValue \"MAX\"]) ;\n  sh:path (<http://data.europa.eu/949/trackPhaseInfo>\n  <http://data.europa.eu/949/phaseInfoDistanceType>)" ;
+  sh:resultPath (<http://data.europa.eu/949/trackPhaseInfo>
+<http://data.europa.eu/949/phaseInfoDistanceType>) ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:OrConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> ;
+  sh:value "" .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:28b568ea-0c71-48a2-bac6-3b888443835c>] .
+

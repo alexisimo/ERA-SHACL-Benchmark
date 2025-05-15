@@ -1,0 +1,27 @@
+@prefix dash:      <http://datashapes.org/dash#> .
+@prefix era:       <http://data.europa.eu/949/> .
+@prefix era-sh:    <http://data.europa.eu/949/shapes/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix graphql:   <http://datashapes.org/graphql#> .
+@prefix mf:        <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix owl:       <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:        <http://www.w3.org/ns/shacl#> .
+@prefix sht:       <http://www.w3.org/ns/shacl-test#> .
+@prefix swa:       <http://topbraid.org/swa#> .
+@prefix tosh:      <http://topbraid.org/tosh#> .
+@prefix wgs:       <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+
+[ rdf:type     sh:ValidationReport;
+  sh:conforms  false;
+  sh:result    [ rdf:type                      sh:ValidationResult;
+                 sh:focusNode                  <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>;
+                 sh:resultMessage              "Value must have at least one of the following shapes: _:cc3de10f8641c2d768812a8a44db6284, _:ad314f3f443b9e1951715735dc2a6155";
+                 sh:resultSeverity             sh:Violation;
+                 sh:sourceConstraintComponent  sh:OrConstraintComponent;
+                 sh:sourceShape                era-sh:PhaseInfoDistanceType;
+                 sh:value                      <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>
+               ]
+] .

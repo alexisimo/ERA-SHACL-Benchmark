@@ -1,0 +1,17 @@
+@prefix ns1: <https://github.com/DataTreehouse/maplib#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:maplib:report> a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result <urn:maplib:tr_0> .
+
+<urn:maplib:tr_0> a sh:ValidationResult ;
+    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+    sh:resultMessage "Phase infolength (1.1.1.2.4.1.2): The track has a phase info with the length of the phase separation value (length), that must be an integer. This error may be due to the track having a value that is not an integer."@en ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
+    sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoLength> ;
+    sh:value <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+    ns1:resultConforms false .
+

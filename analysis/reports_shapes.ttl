@@ -1,0 +1,82 @@
+@prefix vrep-sh: <http://data.europa.eu/949/shapes/vrep/> .
+@prefix ex: <http://example.org/ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#############################
+# Rules for validation report
+#############################
+
+vrep-sh:ValidationReportShape
+	a sh:NodeShape ;
+	sh:targetClass sh:ValidationReport.
+
+vrep-sh:AtMostOneClassShape
+    a sh:NodeShape ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "There must be at most one instance of sh:ValidationReport." ;
+        sh:select """
+            PREFIX sh: <http://www.w3.org/ns/shacl#> 
+            SELECT (COUNT(?node) AS ?count)
+            WHERE {
+                ?node a sh:ValidationReport .
+            }
+            HAVING (?count > 1)
+        """ ;
+    ] .
+
+vrep-sh:ValidationReportShape sh:property vrep-sh:ConformsShape .
+vrep-sh:ConformsShape
+    a sh:PropertyShape ;
+    sh:path sh:conforms ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:severity sh:Violation .
+
+#############################
+# Rules for validation result
+#############################
+vrep-sh:ValidationResultShape
+	a sh:NodeShape ;
+	sh:targetObjectsOf sh:result;
+    sh:severity sh:Violation .
+
+vrep-sh:ValidationResultShape sh:property vrep-sh:ValidationResultTypeShape .
+vrep-sh:ValidationResultTypeShape
+    a sh:PropertyShape ;
+    sh:path rdf:type ;
+    sh:hasValue sh:ValidationResult ;
+    sh:severity sh:Violation .
+
+vrep-sh:ValidationResultShape sh:property vrep-sh:FocusNodeShape .
+vrep-sh:FocusNodeShape
+    a sh:PropertyShape ;
+    sh:path sh:focusNode ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Violation .
+
+vrep-sh:ValidationResultShape sh:property vrep-sh:ResultSeverityShape .
+vrep-sh:ResultSeverityShape
+    a sh:PropertyShape ;
+    sh:path sh:resultSeverity ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:in (sh:Info sh:Warning sh:Violation) ;
+    sh:severity sh:Violation .
+
+vrep-sh:ValidationResultShape sh:property vrep-sh:SourceConstraintComponentShape .
+vrep-sh:SourceConstraintComponentShape
+    a sh:PropertyShape ;
+    sh:path sh:sourceConstraintComponent ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Violation .
+

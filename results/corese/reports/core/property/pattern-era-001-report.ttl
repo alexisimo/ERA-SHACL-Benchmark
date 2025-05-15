@@ -1,0 +1,16 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:923fd9c4-a3ca-42e5-86c0-d5bbd556c975> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/imCodeS> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Siding> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/imCode> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.2.2.0.0.1\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Infrastructure manager means any body or undertaking that is responsible in particular for establishing and maintaining railway infrastructure or a part thereof\" ;\n  sh:path <http://data.europa.eu/949/imCode> ;\n  sh:pattern \"^[0-9]{4}$\"" ;
+  sh:resultPath <http://data.europa.eu/949/imCode> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS> ;
+  sh:value "HU55" .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:923fd9c4-a3ca-42e5-86c0-d5bbd556c975>] .
+

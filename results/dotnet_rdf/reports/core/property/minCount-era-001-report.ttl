@@ -1,0 +1,15 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos5 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:MinCountConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "There should be at least 1 value(s)." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/opName> ; 
+                    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/8fb9a95852ddf67349c2a794d3e2059ba3004808> ; 
+                    sh:resultPath <http://data.europa.eu/949/opName>].
+

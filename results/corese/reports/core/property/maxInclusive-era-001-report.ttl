@@ -1,0 +1,26 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:2eda2267-a671-41e5-9744-83971ac692d9> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/aba4b5552c35a885d42d368b9490c367aa74c260> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Track> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/maximumPermittedSpeed> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.1.2.5\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Maximum permitted speed.\" ;\n  sh:maxInclusive 500 ;\n  sh:path <http://data.europa.eu/949/maximumPermittedSpeed>" ;
+  sh:resultPath <http://data.europa.eu/949/maximumPermittedSpeed> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> ;
+  sh:value "a" .
+
+<urn:uuid:bc416a10-3b59-465d-ab77-60c1f52ddbc0> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/267a882b7e055865f874a0ec7bf74b15e5659d58> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Track> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/maximumPermittedSpeed> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.1.2.5\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Maximum permitted speed.\" ;\n  sh:maxInclusive 500 ;\n  sh:path <http://data.europa.eu/949/maximumPermittedSpeed>" ;
+  sh:resultPath <http://data.europa.eu/949/maximumPermittedSpeed> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> ;
+  sh:value 510 .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:2eda2267-a671-41e5-9744-83971ac692d9> ;
+  sh:result <urn:uuid:bc416a10-3b59-465d-ab77-60c1f52ddbc0>] .
+

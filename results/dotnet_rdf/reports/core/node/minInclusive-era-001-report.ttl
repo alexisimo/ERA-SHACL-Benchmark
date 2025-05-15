@@ -1,0 +1,22 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos6 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "Value must be greater than or equal to 34^^http://www.w3.org/2001/XMLSchema#integer." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/lat> ; 
+                    sh:focusNode "16.6055"^^xsd:double ; 
+                    sh:value "16.6055"^^xsd:double],
+                   [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "Value must be greater than or equal to 34^^http://www.w3.org/2001/XMLSchema#integer." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/lat> ; 
+                    sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ; 
+                    sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055>].
+

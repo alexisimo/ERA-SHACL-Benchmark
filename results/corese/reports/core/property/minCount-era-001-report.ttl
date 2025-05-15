@@ -1,0 +1,16 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:2ef2a3e2-2fb4-4aa8-acc4-c32a2b869bac> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/8fb9a95852ddf67349c2a794d3e2059ba3004808> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/opName> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/OperationalPoint> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/opName> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.2.0.0.0.1\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Name normally related to the town or village or to traffic control purpose.\" ;\n  sh:minCount 1 ;\n  sh:path <http://data.europa.eu/949/opName>" ;
+  sh:resultPath <http://data.europa.eu/949/opName> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/opName> ;
+  sh:value 0 .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:2ef2a3e2-2fb4-4aa8-acc4-c32a2b869bac>] .
+

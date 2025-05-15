@@ -1,0 +1,21 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode "a" ;
+            sh:resultMessage "Value is not <= Literal(\"500\", datatype=xsd:integer)" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape era-sh:MaximumPermittedSpeed ;
+            sh:value "a" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode 510 ;
+            sh:resultMessage "Value is not <= Literal(\"500\", datatype=xsd:integer)" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape era-sh:MaximumPermittedSpeed ;
+            sh:value 510 ] .
+

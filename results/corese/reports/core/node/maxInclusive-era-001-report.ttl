@@ -1,0 +1,24 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:b3b5d8ba-80a4-4eac-926e-811ee13d112e> a sh:ValidationResult ;
+  sh:focusNode 510 ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Track> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/maximumPermittedSpeed> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.1.2.5\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Maximum permitted speed.\" ;\n  sh:maxInclusive 500 ;\n  sh:targetNode \"a\" ;\n  sh:targetNode 320 ;\n  sh:targetNode \"500.0\"^^xsd:decimal ;\n  sh:targetNode 500 ;\n  sh:targetNode 510" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> ;
+  sh:value 510 .
+
+<urn:uuid:ca8727cf-9e27-4aae-a5c0-96eee9ca08fa> a sh:ValidationResult ;
+  sh:focusNode "a" ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Track> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/maximumPermittedSpeed> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.1.2.5\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Maximum permitted speed.\" ;\n  sh:maxInclusive 500 ;\n  sh:targetNode \"a\" ;\n  sh:targetNode 320 ;\n  sh:targetNode \"500.0\"^^xsd:decimal ;\n  sh:targetNode 500 ;\n  sh:targetNode 510" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> ;
+  sh:value "a" .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:b3b5d8ba-80a4-4eac-926e-811ee13d112e> ;
+  sh:result <urn:uuid:ca8727cf-9e27-4aae-a5c0-96eee9ca08fa>] .
+

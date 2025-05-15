@@ -11,7 +11,7 @@ import fr.inria.corese.core.load.Load;
 import fr.inria.corese.core.load.LoadException;
 import fr.inria.corese.core.shacl.Shacl;
 import fr.inria.corese.core.transform.Transformer;
-import fr.inria.corese.sparql.exceptions.EngineException;
+import fr.inria.corese.core.sparql.exceptions.EngineException;
 
 public class CoreseValidator {
 

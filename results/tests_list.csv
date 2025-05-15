@@ -1,0 +1,39 @@
+core/path/path-sequence-era-001.ttl , Manual complex path
+core/misc/message-era-001.ttl, Manual 
+core/property/pattern-era-001.ttl , Auto
+core/property/or-era-001.ttl , Auto
+core/property/nodeKind-era-001.ttl , Auto
+core/property/hasValue-era-001.ttl , Auto
+core/property/maxCount-era-001.ttl , Auto
+core/property/maxLength-era-001.ttl , Auto
+core/property/maxExclusive-era-001.ttl , Auto
+core/property/maxCount-era-002.ttl , Auto
+core/property/minLength-era-001.ttl , Auto
+core/property/minInclusive-era-001.ttl , Auto
+core/property/class-era-001.ttl , Auto
+core/property/disjoint-era-001.ttl , Auto
+core/property/minCount-era-002.ttl , Manual always true
+core/property/in-era-001.ttl , Auto
+core/property/maxInclusive-era-001.ttl , Auto x2 results
+core/property/minCount-era-001.ttl , Auto
+core/property/or-era-002.ttl , Manual complex path
+core/property/datatype-era-002.ttl , Auto
+core/property/class-era-002.ttl , Auto
+core/node/pattern-era-001.ttl , Auto 2 results
+core/node/or-era-001.ttl , Auto
+core/node/nodeKind-era-001.ttl , Auto
+core/node/hasValue-era-001.ttl , Auto
+core/node/maxLength-era-001.ttl , Auto
+core/node/datatype-era-001.ttl , Auto
+core/node/maxExclusive-era-001.ttl , Auto
+core/node/minLength-era-001.ttl , Auto
+core/node/minInclusive-era-001.ttl , Auto double
+core/node/class-era-001.ttl , Auto
+core/node/disjoint-era-001.ttl , Auto
+core/node/in-era-001.ttl , Auto 
+core/node/maxInclusive-era-001.ttl , Auto 2 results
+core/node/or-era-002.ttl , Auto
+core/node/class-era-002.ttl , Auto
+sparql/property/sparql-era-001.ttl , Auto
+sparql/node/prefixes-era-001.ttl , Auto
+sparql/node/sparql-era-001.ttl , Auto

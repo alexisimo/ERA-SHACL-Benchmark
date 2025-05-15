@@ -1,0 +1,17 @@
+@prefix ns1: <https://github.com/DataTreehouse/maplib#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:maplib:report> a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result <urn:maplib:tr_0> .
+
+<urn:maplib:tr_0> a sh:ValidationResult ;
+    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/08709321a46939b5b4ead46056d2d558160abd86> ;
+    sh:resultPath <http://data.europa.eu/949/imCode> ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:MinLengthConstraintComponent ;
+    sh:sourceShape <http://data.europa.eu/949/shapes/imCodeT> ;
+    sh:value "085" ;
+    ns1:resultConforms false .
+

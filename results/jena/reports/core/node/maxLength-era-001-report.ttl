@@ -1,0 +1,20 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix era:   <http://data.europa.eu/949/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix mf:    <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sht:   <http://www.w3.org/ns/shacl-test#> .
+
+[ a            sh:ValidationReport ;
+  sh:conforms  false ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  "00745" ;
+                 sh:resultMessage              "MaxLengthConstraint[4]: String too long: 00745" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:MaxLengthConstraintComponent ;
+                 sh:sourceShape                era-sh:imCodeT ;
+                 sh:value                      "00745"
+               ]
+] .

@@ -1,0 +1,17 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:938d98ab-06e3-4217-9b9c-1ac47a4f290b> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/PhaseInfoLength> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/PhaseInfo> ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Track> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/phaseInfoLength> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.2.4.1.2\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Indication of existence of phase separation and required information.\" ;\n  sh:datatype xsd:integer ;\n  sh:path (<http://data.europa.eu/949/trackPhaseInfo>\n  <http://data.europa.eu/949/phaseInfoLength>) ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/21ffaaa0f33d609cbd6f672df6f3f34927b90047> ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>" ;
+  sh:resultPath (<http://data.europa.eu/949/trackPhaseInfo>
+<http://data.europa.eu/949/phaseInfoLength>) ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoLength> ;
+  sh:value ""^^xsd:integer .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:938d98ab-06e3-4217-9b9c-1ac47a4f290b>] .
+

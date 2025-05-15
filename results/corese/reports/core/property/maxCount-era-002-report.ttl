@@ -1,0 +1,16 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:55136bdb-d730-4434-b3d6-75ddbf786cc3> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/trainDetectionSystems/ESL512007300_ES42020_U_ES43023_wheel%20detector> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/minRimWidth> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/TrainDetectionSystem> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/minRimWidth> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.3.7.6\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> true ;\n  rdfs:comment \"Indication of minimum permitted rim width, given millimetres.\" ;\n  sh:maxCount 0 ;\n  sh:path <http://data.europa.eu/949/minRimWidth>" ;
+  sh:resultPath <http://data.europa.eu/949/minRimWidth> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/minRimWidth> ;
+  sh:value 1 .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:55136bdb-d730-4434-b3d6-75ddbf786cc3>] .
+

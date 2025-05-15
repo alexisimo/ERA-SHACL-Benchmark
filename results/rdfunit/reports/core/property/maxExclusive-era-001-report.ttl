@@ -1,0 +1,57 @@
+<urn:uuid:8f761bf8-2db4-11b2-80b8-0242ac110003/8f761bfd-2db4-11b2-80b8-0242ac110003>
+        a       <http://rdfunit.aksw.org/ns/core#TestCaseResult> , <http://www.w3.org/ns/shacl#ValidationResult> ;
+        <http://purl.org/dc/terms/date>
+                "2025-05-06T14:27:47.504Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://rdfunit.aksw.org/ns/core#testCase>
+                <urn:uuid:8f761bfb-2db4-11b2-80b8-0242ac110003> ;
+        <http://www.w3.org/ns/prov#wasGeneratedBy>
+                <urn:uuid:8f761bf8-2db4-11b2-80b8-0242ac110003> ;
+        <http://www.w3.org/ns/shacl#focusNode>
+                <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+        <http://www.w3.org/ns/shacl#message>
+                "sh:maxExclusive of <http://www.w3.org/2003/01/geo/wgs84_pos#long> should be \"46\"^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+        <http://www.w3.org/ns/shacl#resultMessage>
+                "sh:maxExclusive of {$PATH} should be {$maxExclusive}" ;
+        <http://www.w3.org/ns/shacl#resultPath>
+                <http://www.w3.org/2003/01/geo/wgs84_pos#long> ;
+        <http://www.w3.org/ns/shacl#resultSeverity>
+                <http://www.w3.org/ns/shacl#Violation> ;
+        <http://www.w3.org/ns/shacl#severity>
+                <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#ERROR> ;
+        <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                <http://www.w3.org/ns/shacl#MaxExclusiveConstraintComponent> ;
+        <http://www.w3.org/ns/shacl#sourceShape>
+                <http://data.europa.eu/949/shapes/long> ;
+        <http://www.w3.org/ns/shacl#value>
+                "+49.2266"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<urn:uuid:8f761bf8-2db4-11b2-80b8-0242ac110003>
+        a       <http://rdfunit.aksw.org/ns/core#TestExecution> , <http://www.w3.org/ns/shacl#ValidationReport> , <http://www.w3.org/ns/prov#Activity> ;
+        <http://rdfunit.aksw.org/ns/core#executionType>
+                "shaclTestCaseResult" ;
+        <http://rdfunit.aksw.org/ns/core#source>
+                <custom> ;
+        <http://rdfunit.aksw.org/ns/core#testsError>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsFailed>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsRun>
+                "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsSuceedded>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsTimeout>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#totalIndividualErrors>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://www.w3.org/ns/prov#endedAtTime>
+                "2025-05-06T14:27:47.505Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#startedAtTime>
+                "2025-05-06T14:27:47.459Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#wasAssociatedWith>
+                <../data/core/property/maxExclusive-era-001.ttl> ;
+        <http://www.w3.org/ns/prov#wasStartedBy>
+                <http://localhost/> ;
+        <http://www.w3.org/ns/shacl#conforms>
+                false ;
+        <http://www.w3.org/ns/shacl#result>
+                <urn:uuid:8f761bf8-2db4-11b2-80b8-0242ac110003/8f761bfd-2db4-11b2-80b8-0242ac110003> .

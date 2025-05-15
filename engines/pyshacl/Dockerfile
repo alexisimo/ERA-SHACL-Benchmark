@@ -20,11 +20,5 @@ RUN pip install -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . .
 
-# Make shell script executable
-RUN chmod +x run.sh
-
-# Command to run the cli experiment
-# ENTRYPOINT ["./run.sh"]
-
 # Command to run the cli application
 ENTRYPOINT ["python", "validate.py"]

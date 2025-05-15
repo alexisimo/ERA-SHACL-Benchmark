@@ -1,0 +1,25 @@
+@prefix ns1: <https://github.com/DataTreehouse/maplib#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:maplib:report> a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result <urn:maplib:tr_0>,
+        <urn:maplib:tr_1> .
+
+<urn:maplib:tr_0> a sh:ValidationResult ;
+    sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
+    sh:sourceShape <http://data.europa.eu/949/shapes/lat> ;
+    sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+    ns1:resultConforms false .
+
+<urn:maplib:tr_1> a sh:ValidationResult ;
+    sh:focusNode 1.66055e+01 ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
+    sh:sourceShape <http://data.europa.eu/949/shapes/lat> ;
+    sh:value 1.66055e+01 ;
+    ns1:resultConforms false .
+

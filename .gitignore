@@ -2,9 +2,11 @@
 old
 data/*
 !data/test/
+!data/vocabularies/
 shapes/*
+!shapes/era_shapes.ttl
 !shapes/test/
-results/*
+
 reports/*
 # Compiled class file
 *.class

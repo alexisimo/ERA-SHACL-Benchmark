@@ -1,0 +1,16 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:c1927f61-ed90-486e-8953-00746d444b33> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/0216a7cb8aa627482be15180128a928f1ad88896> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/imCodeT> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Tunnel> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/imCode> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.1.8.1\" ;\n  <http://data.europa.eu/949/rinfIndex> \"1.2.1.0.5.1\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Each Tunnel can only be submitted by one infrastructure manager, represented by a four-digit code.\" ;\n  sh:maxLength 4 ;\n  sh:path <http://data.europa.eu/949/imCode>" ;
+  sh:resultPath <http://data.europa.eu/949/imCode> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxLengthConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/imCodeT> ;
+  sh:value "00745" .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:c1927f61-ed90-486e-8953-00746d444b33>] .
+

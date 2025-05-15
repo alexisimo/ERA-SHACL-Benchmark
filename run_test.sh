@@ -1,11 +1,14 @@
 #!/bin/bash
 
-for engine in jena; do # maplib jena topbraid rdf4j rdfunit dotnet_rdf pyshacl corese trav_shacl; do # $(ls -d engines/*/ | cut -f2 -d'/'); do 
-    # mkdir -p ./results/$engine/reports/sparql/property
+for engine in maplib jena topbraid rdf4j rdfunit dotnet_rdf pyshacl corese ; do
     mkdir -p ./results/$engine/reports/core/property
+    mkdir -p ./results/$engine/reports/core/node
+    mkdir -p ./results/$engine/reports/sparql/node
+    mkdir -p ./results/$engine/reports/sparql/property
+
 
     echo "Testing" $engine "features"
-    for test in ./tests/*/node/minInclusive-era-001-data.ttl; do #./tests/*/*/*-data.ttl; do
+    for test in ./tests/*/*/*-data.ttl; do 
         report_dir=$(dirname $test| sed "s|./tests|results/$engine/reports|")
         test_data_path=$(echo $test| sed "s|./tests/||")
         test_shapes_path=$(echo $test_data_path| sed "s|-data||")

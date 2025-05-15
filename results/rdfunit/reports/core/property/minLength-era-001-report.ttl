@@ -1,0 +1,57 @@
+<urn:uuid:8f804998-2db4-11b2-80c3-0242ac110003/8f80499f-2db4-11b2-80c3-0242ac110003>
+        a       <http://rdfunit.aksw.org/ns/core#TestCaseResult> , <http://www.w3.org/ns/shacl#ValidationResult> ;
+        <http://purl.org/dc/terms/date>
+                "2025-05-06T14:28:54.321Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://rdfunit.aksw.org/ns/core#testCase>
+                <urn:uuid:8f80499d-2db4-11b2-80c3-0242ac110003> ;
+        <http://www.w3.org/ns/prov#wasGeneratedBy>
+                <urn:uuid:8f804998-2db4-11b2-80c3-0242ac110003> ;
+        <http://www.w3.org/ns/shacl#focusNode>
+                <http://data.europa.eu/949/functionalInfrastructure/tunnels/08709321a46939b5b4ead46056d2d558160abd86> ;
+        <http://www.w3.org/ns/shacl#message>
+                "The minimum length of <http://data.europa.eu/949/imCode> is \"4\"^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+        <http://www.w3.org/ns/shacl#resultMessage>
+                "The minimum length of {$PATH} is {$minLength}" ;
+        <http://www.w3.org/ns/shacl#resultPath>
+                <http://data.europa.eu/949/imCode> ;
+        <http://www.w3.org/ns/shacl#resultSeverity>
+                <http://www.w3.org/ns/shacl#Violation> ;
+        <http://www.w3.org/ns/shacl#severity>
+                <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#ERROR> ;
+        <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                <http://www.w3.org/ns/shacl#MinLengthConstraintComponent> ;
+        <http://www.w3.org/ns/shacl#sourceShape>
+                <http://data.europa.eu/949/shapes/imCodeT> ;
+        <http://www.w3.org/ns/shacl#value>
+                "085" .
+
+<urn:uuid:8f804998-2db4-11b2-80c3-0242ac110003>
+        a       <http://www.w3.org/ns/shacl#ValidationReport> , <http://www.w3.org/ns/prov#Activity> , <http://rdfunit.aksw.org/ns/core#TestExecution> ;
+        <http://rdfunit.aksw.org/ns/core#executionType>
+                "shaclTestCaseResult" ;
+        <http://rdfunit.aksw.org/ns/core#source>
+                <custom> ;
+        <http://rdfunit.aksw.org/ns/core#testsError>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsFailed>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsRun>
+                "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsSuceedded>
+                "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsTimeout>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#totalIndividualErrors>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://www.w3.org/ns/prov#endedAtTime>
+                "2025-05-06T14:28:54.322Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#startedAtTime>
+                "2025-05-06T14:28:54.255Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#wasAssociatedWith>
+                <../data/core/property/minLength-era-001.ttl> ;
+        <http://www.w3.org/ns/prov#wasStartedBy>
+                <http://localhost/> ;
+        <http://www.w3.org/ns/shacl#conforms>
+                false ;
+        <http://www.w3.org/ns/shacl#result>
+                <urn:uuid:8f804998-2db4-11b2-80c3-0242ac110003/8f80499f-2db4-11b2-80c3-0242ac110003> .

@@ -1,0 +1,15 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:87a02aad-b862-4fce-9396-e79728e9bbc8> a sh:ValidationResult ;
+  sh:focusNode "not-an-IRI" ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/rollingStockFireCategoryP> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Tunnel> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/rollingStockFireCategory> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.1.8.10\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Categorisation on how a passenger train with a fire on board will continue to operate for a defined time period\" ;\n  sh:nodeKind sh:IRI ;\n  sh:targetNode <http://data.europa.eu/949/concepts/rolling-stock-fire/rinf/30> ;\n  sh:targetNode \"not-an-IRI\"" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:NodeKindConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/rollingStockFireCategoryP> ;
+  sh:value "not-an-IRI" .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:87a02aad-b862-4fce-9396-e79728e9bbc8>] .
+

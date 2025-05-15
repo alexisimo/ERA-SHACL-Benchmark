@@ -1,0 +1,32 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] a sh:ValidationReport;
+  sh:conforms false;
+  rdf4j:truncated false;
+  sh:result [ a sh:ValidationResult;
+      sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932>;
+      rsx:shapesGraph rdf4j:SHACLShapeGraph;
+      sh:value <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932>;
+      sh:sourceConstraintComponent sh:PatternConstraintComponent;
+      sh:resultSeverity sh:Violation;
+      sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS>
+    ], [ a sh:ValidationResult;
+      sh:focusNode "HU55";
+      rsx:shapesGraph rdf4j:SHACLShapeGraph;
+      sh:value "HU55";
+      sh:sourceConstraintComponent sh:PatternConstraintComponent;
+      sh:resultSeverity sh:Violation;
+      sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS>
+    ] .
+
+<http://data.europa.eu/949/shapes/imCodeS> a sh:NodeShape;
+  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932>,
+    "0083", "HU55";
+  sh:pattern "^[0-9]{4}$" .

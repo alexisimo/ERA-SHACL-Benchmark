@@ -1,0 +1,16 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos5 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:NodeKindConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "Value must be a node of the SHACL node kind http://www.w3.org/ns/shacl#IRI." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/rollingStockFireCategoryP> ; 
+                    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/010d574ec33c941487e788741459394ed983171e> ; 
+                    sh:resultPath <http://data.europa.eu/949/rollingStockFireCategory> ; 
+                    sh:value "not-an-IRI"].
+

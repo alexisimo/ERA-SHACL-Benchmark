@@ -1,15 +1,7 @@
 # ERA-SHACL-Benchmark
 This is a real data SHACL engines benchmark. It is based on a real use case in the railway domain comprising the whole European railway infrastructure information (RINF). 
 
-<!-- ## The ERA Knowledge graph
-### ERA Ontology and vocabularies
-...
-### Data description
-...
-### SHACL shapes
-... -->
-
-## The features unitary test
+## The shapes test suite
 From the whole set of SHACL shapes analysis multiple test cases were extracted as unitary tests of different SHACL-core and SHACL-SPARQL features. 
 
 This test suite was formulated based on the W3C SHACL test suite shapes. It consists of a subset of SHACL-core and SHACL-SPARQL shapes built for validating the ERA knowledge graph together with real failing triples extracted from it to test the engines' capabilities. e  were taken as a base to  Not all the cases are covered. This unitary test, despite not covering all the test suite cases, presents new real cases not tested before.
@@ -17,13 +9,13 @@ This test suite was formulated based on the W3C SHACL test suite shapes. It cons
 The generated validation reports are the assets used to assess each engine capabilities. 
 
 
-## The load and validation times, and memory consumption benchmark
+## The performance benchmark
 The aproximately 55 million triples of the knowledge graph are split into three orders of magnitude tests and validated against three distinct complexities subsets of SHACL shapes. Totalling nine combinations of experiments per engine.
 
 Each tested engine was configured to run in memory as recommended by their respective documentation. To ensure reproducibility and portability, each library was included within a CLI application and packed in a docker image. The loading and validation times were measured within each engine's operation using time measurement standard libraries in the corresponding programming language each library has been programmed with.
 
-## The report quality benchmark
-TO DO...
+## The report quality 
+A set of SHACL shapes were formulated in order for the generated reports to be validated against the mandatory SHACL specificaitions for reports.
 
 ## Usage instructions
 
@@ -31,8 +23,10 @@ TO DO...
 2. Execute the `get_data.sh` script to process and store the knowledge graph subsets and shapes for the benchmark.
 3. Make sure you have Docker installed with admin access (or execute everything with sudo).
 4. Build the images using the `build_images.sh` script available in the engines folder. 
-5. Run the features' tests script `run_test.sh` to generate the test reports.
-6. Finally execute the script `run_benchmark.sh` to run the benchmark.
+5. Run the test suite's tests script `run_test.sh` to generate the test reports.
+6. Execute the script `run_benchmark.sh` to run the benchmark.
+7. Generate the tables and figures using the scripts provided in the `analysis` folder.
+8. Finally, check the reports compliance running the `report.py` script in the analysis folder.
 
 ## How to use this benchmark for testing other engines
 If you want to test an additional engine or a different version create a simple CLI app following the requirements described below and build it inside a Docker image. Then, customize the benchmark script to include it in the list of engines to be tested in the corresponding line.

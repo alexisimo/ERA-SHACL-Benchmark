@@ -1,0 +1,16 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:507e60f5-0d90-4987-aea0-14da2be36572> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sectionsOfLine/a4fb948e261140ec29d804ca771987dc424aeea5> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/opStart> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/SectionOfLine> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/opStart> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.0.0.0.3\" ;\n  <http://data.europa.eu/949/scope> \"global\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Each SoL may have only one start OP, and each OP has unique OP ID within the MS. The “uniqueOPID” is defined in parameter 1.2.0.0.0.2. Each SoL has the principal direction of the traffic defined by increasing kilometres running from the start OP to the end OP. That is why the start OP is always located at lowest kilometre of the line within the SoL. Data collected in the UK in miles will be transformed to km for uploading to the RINF application. \\n The OP ID must exist in the MS file of RINF. The value of this parameter must be different from 1.1.0.0.0.4. No validation will be performed by RINF application regarding which is the start and which the end OP. This requires national verification.\" ;\n  sh:disjoint <http://data.europa.eu/949/opEnd> ;\n  sh:path <http://data.europa.eu/949/opStart>" ;
+  sh:resultPath <http://data.europa.eu/949/opStart> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:DisjointConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/opStart> ;
+  sh:value <http://data.europa.eu/949/functionalInfrastructure/operationalPoints/FR0000001897> .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:507e60f5-0d90-4987-aea0-14da2be36572>] .
+

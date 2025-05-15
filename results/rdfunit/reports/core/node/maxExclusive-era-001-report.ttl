@@ -1,0 +1,80 @@
+<urn:uuid:8f56bb96-2db4-11b2-807e-0242ac110003/8f56bb9d-2db4-11b2-807e-0242ac110003>
+        a       <http://www.w3.org/ns/shacl#ValidationResult> , <http://rdfunit.aksw.org/ns/core#TestCaseResult> ;
+        <http://purl.org/dc/terms/date>
+                "2025-05-06T14:24:21.892Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://rdfunit.aksw.org/ns/core#testCase>
+                <urn:uuid:8f56bb97-2db4-11b2-807e-0242ac110003> ;
+        <http://www.w3.org/ns/prov#wasGeneratedBy>
+                <urn:uuid:8f56bb96-2db4-11b2-807e-0242ac110003> ;
+        <http://www.w3.org/ns/shacl#focusNode>
+                "+49.2266"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://www.w3.org/ns/shacl#message>
+                "sh:maxExclusive of {$PATH} should be \"46\"^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+        <http://www.w3.org/ns/shacl#resultMessage>
+                "sh:maxExclusive of {$PATH} should be {$maxExclusive}" ;
+        <http://www.w3.org/ns/shacl#resultSeverity>
+                <http://www.w3.org/ns/shacl#Violation> ;
+        <http://www.w3.org/ns/shacl#severity>
+                <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#ERROR> ;
+        <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                <http://www.w3.org/ns/shacl#MaxExclusiveConstraintComponent> ;
+        <http://www.w3.org/ns/shacl#sourceShape>
+                <http://data.europa.eu/949/shapes/long> ;
+        <http://www.w3.org/ns/shacl#value>
+                "+49.2266"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<urn:uuid:8f56bb96-2db4-11b2-807e-0242ac110003>
+        a       <http://rdfunit.aksw.org/ns/core#TestExecution> , <http://www.w3.org/ns/shacl#ValidationReport> , <http://www.w3.org/ns/prov#Activity> ;
+        <http://rdfunit.aksw.org/ns/core#executionType>
+                "shaclTestCaseResult" ;
+        <http://rdfunit.aksw.org/ns/core#source>
+                <custom> ;
+        <http://rdfunit.aksw.org/ns/core#testsError>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsFailed>
+                "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsRun>
+                "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsSuceedded>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsTimeout>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#totalIndividualErrors>
+                "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://www.w3.org/ns/prov#endedAtTime>
+                "2025-05-06T14:24:21.902Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#startedAtTime>
+                "2025-05-06T14:24:21.852Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#wasAssociatedWith>
+                <../data/core/node/maxExclusive-era-001.ttl> ;
+        <http://www.w3.org/ns/prov#wasStartedBy>
+                <http://localhost/> ;
+        <http://www.w3.org/ns/shacl#conforms>
+                false ;
+        <http://www.w3.org/ns/shacl#result>
+                <urn:uuid:8f56bb96-2db4-11b2-807e-0242ac110003/8f56bb9e-2db4-11b2-807e-0242ac110003> , <urn:uuid:8f56bb96-2db4-11b2-807e-0242ac110003/8f56bb9d-2db4-11b2-807e-0242ac110003> .
+
+<urn:uuid:8f56bb96-2db4-11b2-807e-0242ac110003/8f56bb9e-2db4-11b2-807e-0242ac110003>
+        a       <http://www.w3.org/ns/shacl#ValidationResult> , <http://rdfunit.aksw.org/ns/core#TestCaseResult> ;
+        <http://purl.org/dc/terms/date>
+                "2025-05-06T14:24:21.899Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://rdfunit.aksw.org/ns/core#testCase>
+                <urn:uuid:8f56bb99-2db4-11b2-807e-0242ac110003> ;
+        <http://www.w3.org/ns/prov#wasGeneratedBy>
+                <urn:uuid:8f56bb96-2db4-11b2-807e-0242ac110003> ;
+        <http://www.w3.org/ns/shacl#focusNode>
+                <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+        <http://www.w3.org/ns/shacl#message>
+                "sh:maxExclusive of {$PATH} should be \"46\"^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+        <http://www.w3.org/ns/shacl#resultMessage>
+                "sh:maxExclusive of {$PATH} should be {$maxExclusive}" ;
+        <http://www.w3.org/ns/shacl#resultSeverity>
+                <http://www.w3.org/ns/shacl#Violation> ;
+        <http://www.w3.org/ns/shacl#severity>
+                <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#ERROR> ;
+        <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                <http://www.w3.org/ns/shacl#MaxExclusiveConstraintComponent> ;
+        <http://www.w3.org/ns/shacl#sourceShape>
+                <http://data.europa.eu/949/shapes/long> ;
+        <http://www.w3.org/ns/shacl#value>
+                <http://data.europa.eu/949/locations/%2B49.2266/16.6055> .

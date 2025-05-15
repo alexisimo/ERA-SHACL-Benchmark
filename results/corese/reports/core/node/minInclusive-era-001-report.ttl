@@ -1,0 +1,24 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:2751bf11-f40d-4b41-8fcf-f6ed3e5d0dec> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/lat> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://www.opengis.net/ont/geosparql#Geometry> ;\n  <http://data.europa.eu/949/affectedProperty> geo:lat ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Latitude following the spatial reference system WGS84.\" ;\n  sh:minInclusive 34 ;\n  sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;\n  sh:targetNode \"16.6055\"^^xsd:double ;\n  sh:targetNode \"52.0988\"^^xsd:double" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/lat> ;
+  sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055> .
+
+<urn:uuid:ab32cf31-3fce-4a5d-8de1-bec6c243ca58> a sh:ValidationResult ;
+  sh:focusNode "16.6055"^^xsd:double ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/lat> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://www.opengis.net/ont/geosparql#Geometry> ;\n  <http://data.europa.eu/949/affectedProperty> geo:lat ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Latitude following the spatial reference system WGS84.\" ;\n  sh:minInclusive 34 ;\n  sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;\n  sh:targetNode \"16.6055\"^^xsd:double ;\n  sh:targetNode \"52.0988\"^^xsd:double" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MinInclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/lat> ;
+  sh:value "16.6055"^^xsd:double .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:2751bf11-f40d-4b41-8fcf-f6ed3e5d0dec> ;
+  sh:result <urn:uuid:ab32cf31-3fce-4a5d-8de1-bec6c243ca58>] .
+

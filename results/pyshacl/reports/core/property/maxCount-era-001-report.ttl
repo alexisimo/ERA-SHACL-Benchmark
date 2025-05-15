@@ -1,0 +1,15 @@
+@prefix era: <http://data.europa.eu/949/> .
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> ;
+            sh:resultMessage "More than 1 values on <http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d>->era:minimumTemperature" ;
+            sh:resultPath era:minimumTemperature ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
+            sh:sourceShape era-sh:MinimumTemperature ] .
+

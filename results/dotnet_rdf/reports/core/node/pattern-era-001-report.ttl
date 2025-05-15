@@ -1,0 +1,22 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos6 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:PatternConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage """Value must match the expected regular expression \"^[0-9]{4}$^^http://www.w3.org/2001/XMLSchema#string\" with flags \"\".""" ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS> ; 
+                    sh:focusNode "HU55" ; 
+                    sh:value "HU55"],
+                   [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:PatternConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage """Value must match the expected regular expression \"^[0-9]{4}$^^http://www.w3.org/2001/XMLSchema#string\" with flags \"\".""" ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS> ; 
+                    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932> ; 
+                    sh:value <http://data.europa.eu/949/functionalInfrastructure/sidings/03f5ac96ec17387fef12b06e302b74893b4ec932>].
+

@@ -1,0 +1,15 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos5 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:MaxLengthConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "Value length must be less than 4." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/imCodeT> ; 
+                    sh:focusNode "00745" ; 
+                    sh:value "00745"].
+

@@ -1,0 +1,16 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:a42ee5d8-d5ef-41d0-af52-201ab995d1a8> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/PhaseInfo> ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/Track> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/phaseInfoDistanceType> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.2.4.1.2\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Indication of existence of phase separation and required information.\" ;\n  sh:in (\"MIN\"\n  \"MAX\") ;\n  sh:path <http://data.europa.eu/949/phaseInfoDistanceType>" ;
+  sh:resultPath <http://data.europa.eu/949/phaseInfoDistanceType> ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:InConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> ;
+  sh:value "" .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:a42ee5d8-d5ef-41d0-af52-201ab995d1a8>] .
+

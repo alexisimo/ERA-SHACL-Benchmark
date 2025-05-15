@@ -1,0 +1,24 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos6 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "Value must be less than or equal to 500^^http://www.w3.org/2001/XMLSchema#integer." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> ; 
+                    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/267a882b7e055865f874a0ec7bf74b15e5659d58> ; 
+                    sh:resultPath <http://data.europa.eu/949/maximumPermittedSpeed> ; 
+                    sh:value 510 ],
+                   [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "Value must be less than or equal to 500^^http://www.w3.org/2001/XMLSchema#integer." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed> ; 
+                    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/aba4b5552c35a885d42d368b9490c367aa74c260> ; 
+                    sh:resultPath <http://data.europa.eu/949/maximumPermittedSpeed> ; 
+                    sh:value "a"].
+

@@ -1,0 +1,24 @@
+@prefix era: <http://data.europa.eu/949/> .
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/267a882b7e055865f874a0ec7bf74b15e5659d58> ;
+            sh:resultMessage "Value is not <= Literal(\"500\", datatype=xsd:integer)" ;
+            sh:resultPath era:maximumPermittedSpeed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape era-sh:MaximumPermittedSpeed ;
+            sh:value 510 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/aba4b5552c35a885d42d368b9490c367aa74c260> ;
+            sh:resultMessage "Value is not <= Literal(\"500\", datatype=xsd:integer)" ;
+            sh:resultPath era:maximumPermittedSpeed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape era-sh:MaximumPermittedSpeed ;
+            sh:value "a" ] .
+

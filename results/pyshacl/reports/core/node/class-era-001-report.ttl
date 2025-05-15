@@ -1,0 +1,14 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe> ;
+            sh:resultMessage "Value does not have class foaf:Document" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClassConstraintComponent ;
+            sh:sourceShape era-sh:localRulesOrRestrictionsDoc ;
+            sh:value <http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe> ] .
+

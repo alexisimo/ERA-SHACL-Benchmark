@@ -1,0 +1,14 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode "not-an-IRI" ;
+            sh:resultMessage "Value is not of Node Kind sh:IRI" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:NodeKindConstraintComponent ;
+            sh:sourceShape era-sh:rollingStockFireCategoryP ;
+            sh:value "not-an-IRI" ] .
+

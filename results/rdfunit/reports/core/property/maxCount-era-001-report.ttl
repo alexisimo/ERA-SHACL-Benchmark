@@ -1,0 +1,55 @@
+<urn:uuid:b708d49e-2db4-11b2-8052-0242ac110003/b708d4a3-2db4-11b2-8052-0242ac110003>
+        a       <http://rdfunit.aksw.org/ns/core#TestCaseResult> , <http://www.w3.org/ns/shacl#ValidationResult> ;
+        <http://purl.org/dc/terms/date>
+                "2025-05-07T08:54:20.193Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://rdfunit.aksw.org/ns/core#testCase>
+                <urn:uuid:b708d4a1-2db4-11b2-8052-0242ac110003> ;
+        <http://www.w3.org/ns/prov#wasGeneratedBy>
+                <urn:uuid:b708d49e-2db4-11b2-8052-0242ac110003> ;
+        <http://www.w3.org/ns/shacl#focusNode>
+                <http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> ;
+        <http://www.w3.org/ns/shacl#message>
+                "Maximum cardinality for <http://data.europa.eu/949/minimumTemperature> is \"1\"^^<http://www.w3.org/2001/XMLSchema#integer>" ;
+        <http://www.w3.org/ns/shacl#resultMessage>
+                "Maximum cardinality for {$PATH} is {$maxCount}" ;
+        <http://www.w3.org/ns/shacl#resultPath>
+                <http://data.europa.eu/949/minimumTemperature> ;
+        <http://www.w3.org/ns/shacl#resultSeverity>
+                <http://www.w3.org/ns/shacl#Violation> ;
+        <http://www.w3.org/ns/shacl#severity>
+                <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#ERROR> ;
+        <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                <http://www.w3.org/ns/shacl#MaxCountConstraintComponent> ;
+        <http://www.w3.org/ns/shacl#sourceShape>
+                <http://data.europa.eu/949/shapes/MinimumTemperature> .
+
+<urn:uuid:b708d49e-2db4-11b2-8052-0242ac110003>
+        a       <http://rdfunit.aksw.org/ns/core#TestExecution> , <http://www.w3.org/ns/prov#Activity> , <http://www.w3.org/ns/shacl#ValidationReport> ;
+        <http://rdfunit.aksw.org/ns/core#executionType>
+                "shaclTestCaseResult" ;
+        <http://rdfunit.aksw.org/ns/core#source>
+                <custom> ;
+        <http://rdfunit.aksw.org/ns/core#testsError>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsFailed>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsRun>
+                "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsSuceedded>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#testsTimeout>
+                "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://rdfunit.aksw.org/ns/core#totalIndividualErrors>
+                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+        <http://www.w3.org/ns/prov#endedAtTime>
+                "2025-05-07T08:54:20.194Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#startedAtTime>
+                "2025-05-07T08:54:20.141Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://www.w3.org/ns/prov#wasAssociatedWith>
+                <../data/core/property/maxCount-era-001.ttl> ;
+        <http://www.w3.org/ns/prov#wasStartedBy>
+                <http://localhost/> ;
+        <http://www.w3.org/ns/shacl#conforms>
+                false ;
+        <http://www.w3.org/ns/shacl#result>
+                <urn:uuid:b708d49e-2db4-11b2-8052-0242ac110003/b708d4a3-2db4-11b2-8052-0242ac110003> .

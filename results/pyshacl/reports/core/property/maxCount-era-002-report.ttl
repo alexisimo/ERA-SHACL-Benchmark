@@ -1,0 +1,15 @@
+@prefix era: <http://data.europa.eu/949/> .
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/trainDetectionSystems/ESL512007300_ES42020_U_ES43023_wheel%20detector> ;
+            sh:resultMessage "More than 0 values on <http://data.europa.eu/949/functionalInfrastructure/trainDetectionSystems/ESL512007300_ES42020_U_ES43023_wheel%20detector>->era:minRimWidth" ;
+            sh:resultPath era:minRimWidth ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
+            sh:sourceShape era-sh:minRimWidth ] .
+

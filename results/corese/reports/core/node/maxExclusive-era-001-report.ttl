@@ -1,0 +1,24 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:4507038e-53f6-431c-84df-483566b4d5d7> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/long> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://www.opengis.net/ont/geosparql#Geometry> ;\n  <http://data.europa.eu/949/affectedProperty> geo:long ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Longitude following the spatial reference system WGS84.\" ;\n  sh:maxExclusive 46 ;\n  sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;\n  sh:targetNode \"+5.0966\"^^xsd:double ;\n  sh:targetNode \"+49.2266\"^^xsd:double" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/long> ;
+  sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055> .
+
+<urn:uuid:bccef9d1-240e-4490-8b00-5119d405a848> a sh:ValidationResult ;
+  sh:focusNode "+49.2266"^^xsd:double ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/long> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://www.opengis.net/ont/geosparql#Geometry> ;\n  <http://data.europa.eu/949/affectedProperty> geo:long ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Longitude following the spatial reference system WGS84.\" ;\n  sh:maxExclusive 46 ;\n  sh:targetNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;\n  sh:targetNode \"+5.0966\"^^xsd:double ;\n  sh:targetNode \"+49.2266\"^^xsd:double" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/long> ;
+  sh:value "+49.2266"^^xsd:double .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:4507038e-53f6-431c-84df-483566b4d5d7> ;
+  sh:result <urn:uuid:bccef9d1-240e-4490-8b00-5119d405a848>] .
+

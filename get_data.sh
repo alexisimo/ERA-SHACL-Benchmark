@@ -11,78 +11,78 @@ rev 2025-01-05-rinf-xml-combined.nq | cut -d "<" -f 2- |rev |sed 's/.$/./'  > 20
 rm 2025-01-05-rinf-xml-combined.nq
 cd ../..
 
-# Get vocabularies
-mkdir data/vocabularies
-cd data/vocabularies
-echo "Downloading the knoledge graph vocabularies and ontology..."
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-AxleBearingMonitoring.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-BrakeParkingType.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-Categories.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-CompanyCodeCategories.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-CompliantPantographHeads.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ContactLineSystems.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ContactStripMaterials.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-EddyCurrentBraking.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-EndCouplingType.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-EnergySupplySystems.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSBaselines.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSEquipmentLevels.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSInfills.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSLevels.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSMVersions.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSSituations.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSSystemCompatibilities.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-FreightCorridors.ttl
-# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-FrenchTrainDetectionSystemLimitations.ttl # Deprecated
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-FrenchTrainDetectionSystemLimitationNumbers.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GaugeChangeoverFacilities.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GaugingProfiles.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMREquipmentVersion.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMRNetworks.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMRRadioDataCommunications.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMRVersions.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-HotAxleBoxDetectorDirections.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-IceConditions.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LegacyRadioSystems.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LineCategories.ttl
-# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LoadCapabilities.ttl # Deprecated
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LoadCapabilityLineCategories.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MagneticBraking.ttl
-# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MaxAmountSandings.ttl # Deprecated
-# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MinAxleLoadsPerVehicleCategory.ttl # Deprecated
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MinAxleLoadVehicleCategories.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-Navigabilities.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-NominalTrackGauges.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-NumberActiveMobiles.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OperationalPointTypes.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OptionalFunctions.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OSMClasses.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OtherPantographHeads.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OtherProtectionControlWarnings.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-PlatformHeights.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ProfileNumbersSemiTrailers.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ProfileNumbersSwapBodies.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RadioSystemCompatibilitiesData.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RadioSystemCompatibilitiesVoice.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RailInclinations.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RelationPositions.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-Restrictions.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RollingStockFireCategories.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-SoLNatures.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-States.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-SubCategories.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TemperatureRanges.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TENClassifications.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ThermalCapacityTSIReferences.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrackRunningDirections.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrainDetectionSystems.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrainDetectionSystemsSpecificChecks.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrainProtectionLegacySystems.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TSICompliances.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TSIExistenceAndCompliances.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TypeVersionIds.ttl
-curl -O https://data-interop.era.europa.eu/era-vocabulary/ontology.ttl
-cd ../..
+# Get vocabularies # A copy is provided due to the updates performed in the current version of the ontology
+# mkdir data/vocabularies
+# cd data/vocabularies
+# echo "Downloading the knoledge graph vocabularies and ontology..."
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-AxleBearingMonitoring.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-BrakeParkingType.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-Categories.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-CompanyCodeCategories.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-CompliantPantographHeads.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ContactLineSystems.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ContactStripMaterials.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-EddyCurrentBraking.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-EndCouplingType.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-EnergySupplySystems.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSBaselines.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSEquipmentLevels.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSInfills.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSLevels.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSMVersions.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSSituations.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ETCSSystemCompatibilities.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-FreightCorridors.ttl
+# # curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-FrenchTrainDetectionSystemLimitations.ttl # Deprecated
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-FrenchTrainDetectionSystemLimitationNumbers.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GaugeChangeoverFacilities.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GaugingProfiles.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMREquipmentVersion.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMRNetworks.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMRRadioDataCommunications.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-GSMRVersions.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-HotAxleBoxDetectorDirections.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-IceConditions.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LegacyRadioSystems.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LineCategories.ttl
+# # curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LoadCapabilities.ttl # Deprecated
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-LoadCapabilityLineCategories.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MagneticBraking.ttl
+# # curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MaxAmountSandings.ttl # Deprecated
+# # curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MinAxleLoadsPerVehicleCategory.ttl # Deprecated
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-MinAxleLoadVehicleCategories.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-Navigabilities.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-NominalTrackGauges.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-NumberActiveMobiles.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OperationalPointTypes.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OptionalFunctions.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OSMClasses.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OtherPantographHeads.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-OtherProtectionControlWarnings.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-PlatformHeights.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ProfileNumbersSemiTrailers.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ProfileNumbersSwapBodies.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RadioSystemCompatibilitiesData.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RadioSystemCompatibilitiesVoice.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RailInclinations.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RelationPositions.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-Restrictions.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-RollingStockFireCategories.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-SoLNatures.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-States.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-SubCategories.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TemperatureRanges.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TENClassifications.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-ThermalCapacityTSIReferences.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrackRunningDirections.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrainDetectionSystems.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrainDetectionSystemsSpecificChecks.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TrainProtectionLegacySystems.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TSICompliances.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TSIExistenceAndCompliances.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/skos/era-skos-TypeVersionIds.ttl
+# curl -O https://data-interop.era.europa.eu/era-vocabulary/ontology.ttl
+# cd ../..
 
 # Subsets
 echo "Subsetting and concatenating with the vocabularies into the benchmark knowledge graph subsets..."
@@ -97,12 +97,12 @@ cat data/vocabularies/vocabularies.ttl data/raw/ES.nt > data/ES.ttl
 cat data/vocabularies/vocabularies.ttl data/raw/FR.nt > data/FR.ttl
 # cat data/vocabularies/vocabularies.ttl data/raw/LV.nt > data/LV.ttl
 
-# Get shapes
-mkdir shapes
-cd shapes
-echo "Downloading the full set of SHACL shapes..."
-curl -o era_shapes.ttl https://data-interop.era.europa.eu/era-vocabulary/era-shapes
-cd ..
+# Get shapes # A copy is provided due to the updates performed in the current version of the ontology
+# mkdir shapes
+# cd shapes
+# echo "Downloading the full set of SHACL shapes..."
+# # curl -o era_shapes.ttl https://data-interop.era.europa.eu/era-vocabulary/era-shapes # now contains the 3.1 version of shapes
+# cd ..
 
 # Subset shapes for SHACL core only # remove REGEX era-sh:.*sparql((.|\n)+?""" .$)
 echo "Subsetting SHACL shapes into core and train detection systems..."
@@ -252,6 +252,7 @@ echo "# maxCount-era-001 valid resource" > tests/core/property/maxCount-era-001-
 grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/0051fa1b696e840e75d27d87c98a4178199da790>" data/ERA.ttl >> tests/core/property/maxCount-era-001-data.ttl
 echo "# maxCount-era-001 syntethic invalid resource" >> tests/core/property/maxCount-era-001-data.ttl
 grep "<http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d>" data/ERA.ttl >> tests/core/property/maxCount-era-001-data.ttl
+echo "# inserted violation" >> tests/core/property/maxCount-era-001-data.ttl
 echo "<http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> <http://data.europa.eu/949/minimumTemperature> \"-20\"^^<http://www.w3.org/2001/XMLSchema#integer>." >> tests/core/property/maxCount-era-001-data.ttl
 
 echo "Getting minCount-era-001 test resources..."

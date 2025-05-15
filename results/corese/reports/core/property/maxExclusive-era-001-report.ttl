@@ -1,0 +1,17 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:65128b94-e996-46ce-930f-1b1939541631> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/long> a sh:PropertyShape ;\n  <http://data.europa.eu/949/affectedClass> <http://www.opengis.net/ont/geosparql#Geometry> ;\n  <http://data.europa.eu/949/affectedProperty> geo:long ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Longitude following the spatial reference system WGS84.\" ;\n  sh:maxExclusive 46 ;\n  sh:path geo:long" ;
+  sh:resultPath geo:long ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/long> ;
+  sh:value "+49.2266"^^xsd:double .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:65128b94-e996-46ce-930f-1b1939541631>] .
+

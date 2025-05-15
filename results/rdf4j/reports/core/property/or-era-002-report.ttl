@@ -1,0 +1,32 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] a sh:ValidationReport;
+  sh:conforms false;
+  rdf4j:truncated false;
+  sh:result [ a sh:ValidationResult;
+      sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4>;
+      rsx:shapesGraph rdf4j:SHACLShapeGraph;
+      sh:value "";
+      sh:resultPath _:5b754f9063bdd95d;
+      sh:sourceConstraintComponent sh:OrConstraintComponent;
+      sh:resultSeverity sh:Violation;
+      sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoDistanceType>
+    ] .
+
+<http://data.europa.eu/949/shapes/PhaseInfoDistanceType> a sh:PropertyShape;
+  sh:path _:5b754f9063bdd95d;
+  sh:or ([ a sh:NodeShape;
+        sh:hasValue "MIN"
+      ] [ a sh:NodeShape;
+        sh:hasValue "MAX"
+      ]) .
+
+[] rdf:first <http://data.europa.eu/949/trackPhaseInfo>;
+  rdf:rest (<http://data.europa.eu/949/phaseInfoDistanceType>) .

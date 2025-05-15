@@ -1,0 +1,15 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:5a73eace-c3db-472f-8261-f14c42bbf0da> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/PhaseInfo> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.2.4.1.2\" ;\n  rdfs:comment \"Indication of existence of phase separation and required information.\" ;\n  sh:hasValue \"MAX\" ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;\n  sh:targetNode \"MAX\"" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> ;
+  sh:value <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:5a73eace-c3db-472f-8261-f14c42bbf0da>] .
+

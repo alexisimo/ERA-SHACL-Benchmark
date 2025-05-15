@@ -25,6 +25,7 @@ def config_ax(ax, engines, results, subset, shapes, indicator):
         try:
             values.append(results[engine][subset][shapes][indicator].mean())
             values_err.append(results[engine][subset][shapes][indicator].std())
+            print(subset, ",", engine, ",", indicator, ",", shapes, ",", str(values[-1]), ",", str(values_err[-1]))
         except:
             values.append(np.nan)
             values_err.append(np.nan)
@@ -32,12 +33,15 @@ def config_ax(ax, engines, results, subset, shapes, indicator):
     ax.bar(engines, values)
     ax.errorbar(engines, values, values_err, fmt='none', color='black', markersize=2, capsize=4)
     ax.set_yscale("log")
-    ax.set_autoscaley_on
-    plt.grid(axis='y')
+    # ax.set_ylim(1e-1, 172800)
+    ax.grid(axis='y')
+    # ax.set_autoscaley_on
+    # plt.grid(axis='y')
     ax.set_axisbelow(True)
+    return values, values_err
 
 def plot_bench(engines, results, indicator):
-    fig, axs = plt.subplots(3,3, sharex=True, layout='constrained', sharey='row')
+    fig, axs = plt.subplots(3,3, sharex=True, layout='constrained', sharey="row") #sharey="row"
     fig.suptitle(f'{indicator}')
     axs[0,0].set_ylabel('ERA ~55M')
     axs[0,0].set_title('tds')
@@ -58,11 +62,24 @@ def plot_bench(engines, results, indicator):
     config_ax(axs[2,1], engines, results, 'ES', 'core', indicator)
     config_ax(axs[2,2], engines, results, 'ES', 'era', indicator)
 
-engines = ['maplib-0.12', 'jena', 'topbraid', 'rdf4j', 'rdfunit', 'dotnet_rdf','pyshacl', 'corese' ] # list(results.keys())
+def plot_bench_load(engines, results, indicator):
+    fig, axs = plt.subplots(3,1, sharex=True, layout='constrained', sharey=True) #sharey="row"
+    fig.suptitle(f'{indicator}')
+    axs[0].set_ylabel('ERA ~55M')
+    # axs[0].set_title('core')
+    axs[1].set_ylabel('FR ~10M')
+    axs[2].set_ylabel('ES ~1M')
+    axs[2].tick_params(axis='x', labelrotation=90)
+    config_ax(axs[0], engines, results, 'ERA', 'core', indicator)
+    config_ax(axs[1], engines, results, 'FR', 'core', indicator)
+    config_ax(axs[2], engines, results, 'ES', 'core', indicator)
+
+
+engines = ['maplib', 'jena', 'topbraid', 'rdf4j', 'rdfunit', 'dotnet_rdf', 'corese', 'pyshacl' ] # list(results.keys()) 'maplib-0.12',
+# plot_bench_load(engines, results, 'loading')
 plot_bench(engines, results, 'loading')
 plot_bench(engines, results, ' validation')
 plot_bench(engines, results, ' memory_usage')
 plot_bench(engines, results, 'cummulative')
-
 
 # %%

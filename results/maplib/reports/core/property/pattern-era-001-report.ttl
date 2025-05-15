@@ -1,0 +1,17 @@
+@prefix ns1: <https://github.com/DataTreehouse/maplib#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:maplib:report> a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result <urn:maplib:tr_0> .
+
+<urn:maplib:tr_0> a sh:ValidationResult ;
+    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/sidings/41f97688067c71186b284ba9c7b85c1e259167df> ;
+    sh:resultPath <http://data.europa.eu/949/imCode> ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+    sh:sourceShape <http://data.europa.eu/949/shapes/imCodeS> ;
+    sh:value "HU55" ;
+    ns1:resultConforms false .
+

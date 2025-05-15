@@ -1,0 +1,15 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:a012ba2a-632f-4297-9de5-39973071eb4b> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/PhaseInfo> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.2.4.1.2\" ;\n  rdfs:comment \"Indication of existence of phase separation and required information.\" ;\n  sh:or ([sh:property [sh:hasValue \"MIN\" ;\n      sh:path <http://data.europa.eu/949/phaseInfoDistanceType>]]\n  [sh:property [sh:hasValue \"MAX\" ;\n      sh:path <http://data.europa.eu/949/phaseInfoDistanceType>]]) ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/Vilnius-Kena-BY_LTKena_II_EU00250_distancetypeMAXlength270switchoffbreakerYlowerpantographNchangesupplysystemNkm034.780>" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:OrConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoDistanceType> ;
+  sh:value <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:a012ba2a-632f-4297-9de5-39973071eb4b>] .
+

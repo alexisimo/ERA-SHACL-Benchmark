@@ -1,0 +1,21 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode 4.92266e+01 ;
+            sh:resultMessage "Value is not < Literal(\"46\", datatype=xsd:integer)" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+            sh:sourceShape era-sh:long ;
+            sh:value 4.92266e+01 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ;
+            sh:resultMessage "Value is not < Literal(\"46\", datatype=xsd:integer)" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxExclusiveConstraintComponent ;
+            sh:sourceShape era-sh:long ;
+            sh:value <http://data.europa.eu/949/locations/%2B49.2266/16.6055> ] .
+

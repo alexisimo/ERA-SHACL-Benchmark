@@ -1,0 +1,16 @@
+@prefix ns1: <https://github.com/DataTreehouse/maplib#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:maplib:report> a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result <urn:maplib:tr_0> .
+
+<urn:maplib:tr_0> a sh:ValidationResult ;
+    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/006c6fda669d79e5658307362eac006d25b5873d> ;
+    sh:resultPath <http://data.europa.eu/949/minimumTemperature> ;
+    sh:resultSeverity sh:Violation ;
+    sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
+    sh:sourceShape <http://data.europa.eu/949/shapes/MinimumTemperature> ;
+    ns1:resultConforms false .
+

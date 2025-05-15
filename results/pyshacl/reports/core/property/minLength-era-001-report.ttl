@@ -1,0 +1,16 @@
+@prefix era: <http://data.europa.eu/949/> .
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tunnels/08709321a46939b5b4ead46056d2d558160abd86> ;
+            sh:resultMessage "String length not >= Literal(\"4\", datatype=xsd:integer)" ;
+            sh:resultPath era:imCode ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinLengthConstraintComponent ;
+            sh:sourceShape era-sh:imCodeT ;
+            sh:value "085" ] .
+

@@ -17,11 +17,9 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the wheel file into the container
-# COPY maplib-0.12.7-cp310-cp310-manylinux_2_34_x86_64.whl .
 COPY maplib-0.15.15-cp39-abi3-manylinux_2_24_x86_64.whl .
 
 # Install the maplib package
-# RUN pip install maplib-0.12.7-cp310-cp310-manylinux_2_34_x86_64.whl
 RUN pip install maplib-0.15.15-cp39-abi3-manylinux_2_24_x86_64.whl
 
 # Copy the rest of the application code into the container

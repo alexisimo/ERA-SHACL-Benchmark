@@ -1,0 +1,16 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+
+_:autos9 a sh:ValidationReport;
+         sh:conforms false;
+         sh:result [a sh:ValidationResult ; 
+                    sh:sourceConstraintComponent sh:DatatypeConstraintComponent ; 
+                    sh:resultSeverity sh:Violation ; 
+                    sh:resultMessage "Value must be a literal with a datatype of http://www.w3.org/2001/XMLSchema#integer." ; 
+                    sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoLength> ; 
+                    sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/36bf1461f295d432dd780fdc507133f908b7a1d4> ; 
+                    sh:resultPath (<http://data.europa.eu/949/trackPhaseInfo>                                   <http://data.europa.eu/949/phaseInfoLength>) ; 
+                    sh:value ""^^xsd:integer].
+

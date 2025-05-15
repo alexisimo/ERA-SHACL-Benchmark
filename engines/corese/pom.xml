@@ -7,7 +7,7 @@
 		<dependency>
 		    <groupId>fr.inria.corese</groupId>
 		    <artifactId>corese-core</artifactId>
-		    <version>4.5.0</version>
+		    <version>4.6.3</version>
 		</dependency>
     <dependency>
             <groupId>info.picocli</groupId>

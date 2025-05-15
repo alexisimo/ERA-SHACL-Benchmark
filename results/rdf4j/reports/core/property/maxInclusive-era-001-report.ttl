@@ -1,0 +1,33 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] a sh:ValidationReport;
+  sh:conforms false;
+  rdf4j:truncated false;
+  sh:result [ a sh:ValidationResult;
+      sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/267a882b7e055865f874a0ec7bf74b15e5659d58>;
+      rsx:shapesGraph rdf4j:SHACLShapeGraph;
+      sh:value 510;
+      sh:resultPath <http://data.europa.eu/949/maximumPermittedSpeed>;
+      sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent;
+      sh:resultSeverity sh:Violation;
+      sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed>
+    ], [ a sh:ValidationResult;
+      sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/tracks/aba4b5552c35a885d42d368b9490c367aa74c260>;
+      rsx:shapesGraph rdf4j:SHACLShapeGraph;
+      sh:value "a";
+      sh:resultPath <http://data.europa.eu/949/maximumPermittedSpeed>;
+      sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent;
+      sh:resultSeverity sh:Violation;
+      sh:sourceShape <http://data.europa.eu/949/shapes/MaximumPermittedSpeed>
+    ] .
+
+<http://data.europa.eu/949/shapes/MaximumPermittedSpeed> a sh:PropertyShape;
+  sh:path <http://data.europa.eu/949/maximumPermittedSpeed>;
+  sh:maxInclusive 500 .

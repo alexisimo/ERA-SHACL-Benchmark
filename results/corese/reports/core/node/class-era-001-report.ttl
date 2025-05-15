@@ -1,0 +1,17 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<urn:uuid:25d346de-408f-4ef0-aa83-d55c3e285c4a> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/localRulesOrRestrictionsDoc> a sh:NodeShape ;\n  <http://data.europa.eu/949/affectedClass> <http://data.europa.eu/949/OperationalPoint> ;\n  <http://data.europa.eu/949/affectedProperty> <http://data.europa.eu/949/localRulesOrRestrictionsDoc> ;\n  <http://data.europa.eu/949/rinfIndex> \"1.2.3.2\" ;\n  <http://data.europa.eu/949/scope> \"local\" ;\n  <http://data.europa.eu/949/validationAfterXML> false ;\n  rdfs:comment \"Reference of the documents regarding the rules or restrictions of a strictly local nature available by the IM.\" ;\n  sh:class foaf:Document ;\n  sh:targetNode <http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe> ;\n  sh:targetNode <http://data.europa.eu/949/documents/b4e2b5340d9c2086affeabbf1f6f427f0112ccdd>" ;
+  sh:resultPath rdf:type ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:ClassConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/localRulesOrRestrictionsDoc> ;
+  sh:value <http://data.europa.eu/949/documents/0b03113a9f7af9051ee710609f82ee65a1421bbe> .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:25d346de-408f-4ef0-aa83-d55c3e285c4a>] .
+

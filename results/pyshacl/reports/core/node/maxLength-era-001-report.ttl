@@ -1,0 +1,14 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode "00745" ;
+            sh:resultMessage "String length not <= Literal(\"4\", datatype=xsd:integer)" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxLengthConstraintComponent ;
+            sh:sourceShape era-sh:imCodeT ;
+            sh:value "00745" ] .
+

@@ -1,0 +1,30 @@
+@prefix era-sh: <http://data.europa.eu/949/shapes/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix era:   <http://data.europa.eu/949/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix mf:    <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sht:   <http://www.w3.org/ns/shacl-test#> .
+
+[ a            sh:ValidationReport ;
+  sh:conforms  false ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  <http://data.europa.eu/949/functionalInfrastructure/tracks/aba4b5552c35a885d42d368b9490c367aa74c260> ;
+                 sh:resultMessage              "maxInclusive[500] can't compare to \"a\"" ;
+                 sh:resultPath                 era:maximumPermittedSpeed ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:MaxInclusiveConstraintComponent ;
+                 sh:sourceShape                era-sh:MaximumPermittedSpeed ;
+                 sh:value                      "a"
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  <http://data.europa.eu/949/functionalInfrastructure/tracks/267a882b7e055865f874a0ec7bf74b15e5659d58> ;
+                 sh:resultMessage              "Data value 510 is not less than or equal to 500" ;
+                 sh:resultPath                 era:maximumPermittedSpeed ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:MaxInclusiveConstraintComponent ;
+                 sh:sourceShape                era-sh:MaximumPermittedSpeed ;
+                 sh:value                      510
+               ]
+] .

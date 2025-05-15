@@ -1,0 +1,24 @@
+@prefix xsh: <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<urn:uuid:7ed26973-f0d4-433d-96c4-7ca69f8d39a5> a sh:ValidationResult ;
+  sh:focusNode ""^^xsd:integer ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/PhaseInfoLength> a sh:NodeShape ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.2.4.1.2\" ;\n  rdfs:comment \"Indication of existence of phase separation and required information.\" ;\n  sh:datatype xsd:integer ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;\n  sh:targetNode \"\"^^xsd:integer ;\n  sh:targetNode 270" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoLength> ;
+  sh:value ""^^xsd:integer .
+
+<urn:uuid:ff39a7ec-7dff-44db-9d4b-66577c3d325f> a sh:ValidationResult ;
+  sh:focusNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;
+  sh:resultMessage "Fail at: <http://data.europa.eu/949/shapes/PhaseInfoLength> a sh:NodeShape ;\n  <http://data.europa.eu/949/rinfIndex> \"1.1.1.2.4.1.2\" ;\n  rdfs:comment \"Indication of existence of phase separation and required information.\" ;\n  sh:datatype xsd:integer ;\n  sh:targetNode <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> ;\n  sh:targetNode \"\"^^xsd:integer ;\n  sh:targetNode 270" ;
+  sh:resultSeverity sh:Violation ;
+  sh:sourceConstraintComponent sh:DatatypeConstraintComponent ;
+  sh:sourceShape <http://data.europa.eu/949/shapes/PhaseInfoLength> ;
+  sh:value <http://data.europa.eu/949/functionalInfrastructure/phaseInfo/ESL984610276_ESA0849_II%20MIXTA_ES08207_length402switchoffbreakerYlowerpantographN> .
+
+[a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result <urn:uuid:7ed26973-f0d4-433d-96c4-7ca69f8d39a5> ;
+  sh:result <urn:uuid:ff39a7ec-7dff-44db-9d4b-66577c3d325f>] .
+
