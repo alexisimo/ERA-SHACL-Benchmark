@@ -22,7 +22,11 @@ The fields marked with an \* are mandatory.
 
 ### Example
 ```bash
-java -jar target/validator-0.0.1-SNAPSHOT-jar-with-dependencies.jar path/to/rdf_data.ttl path/to/shacl_shapes.ttl path/to/save/report.ttl
+java -jar target/validator-0.0.1-SNAPSHOT.jar path/to/rdf_data.ttl path/to/shacl_shapes.ttl path/to/save/report.ttl
+
+# Here is a new example
+mvn clean package -DskipTests; java -Xmx32G -Xms32G -jar target/validator-0.0.1-SNAPSHOT.jar ../../data/ES.ttl ../../shapes/era_shapes.ttl validation_report.ttl
+
 ```
 Apart from the report generated in the given directory the application gives some relevant information about the validation process.
 ```
