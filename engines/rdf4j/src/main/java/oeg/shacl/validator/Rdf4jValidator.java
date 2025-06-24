@@ -5,10 +5,12 @@ import ch.qos.logback.classic.Logger;
 import org.eclipse.rdf4j.common.exception.ValidationException;
 import org.eclipse.rdf4j.common.transaction.IsolationLevels;
 import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.vocabulary.RDF4J;
 import org.eclipse.rdf4j.model.vocabulary.SHACL;
 import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.RepositoryResult;
 import org.eclipse.rdf4j.repository.sail.SailRepository;
 import org.eclipse.rdf4j.repository.sail.SailRepositoryConnection;
 import org.eclipse.rdf4j.rio.RDFFormat;
@@ -26,7 +28,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class Rdf4jValidator {
 
@@ -62,10 +63,9 @@ public class Rdf4jValidator {
 			try (InputStream inputShapes = new FileInputStream(SHAPES)) {
 				// add the RDF data from the inputstream directly to our database
 				connection.add(inputShapes, "", RDFFormat.TURTLE, RDF4J.SHACL_SHAPE_GRAPH);
-				Model statementsCollector = new LinkedHashModel(connection.getStatements(null, null, null, RDF4J.SHACL_SHAPE_GRAPH)
-						.stream()
-						.collect(Collectors.toList()));
-				System.out.println("Shapes graph size: " + statementsCollector.size());
+				try (RepositoryResult<Statement> statements = connection.getStatements(null, null, null, RDF4J.SHACL_SHAPE_GRAPH)) {
+					System.out.println("Shapes graph size: " + statements.stream().count());
+				}
 			}
 
 			Model validationReportModel = new LinkedHashModel();
@@ -76,8 +76,9 @@ public class Rdf4jValidator {
 				Throwable cause = exception.getCause();
 				if (cause instanceof ValidationException) {
 					validationReportModel = ((ValidationException) cause).validationReportAsModel();
+				} else {
+					throw exception;
 				}
-				// throw exception;
 			}
 			long estimatedTime = System.nanoTime() - startTime;
 
