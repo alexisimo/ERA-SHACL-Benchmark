@@ -6,7 +6,7 @@ for engine in maplib jena topbraid rdf4j rdfunit dotnet_rdf pyshacl corese ; do 
     mkdir ./results/$engine/reports
 
     for subset in ./data/ES.ttl ./data/FR.ttl ./data/ERA.ttl; do # #./data/*.ttl; do
-        for shape in ./shapes/tds_shapes.ttl ./shapes/core_shapes.ttl /shapes/era_shapes.ttl ; do # ./shapes/*.ttl; do
+        for shape in ./shapes/tds_shapes.ttl ./shapes/core_shapes.ttl ./shapes/era_shapes.ttl ; do # ./shapes/*.ttl; do
             echo "loading, validation, memory_usage" > ./results/$engine/$(basename "$subset" .ttl)_$(basename "$shape" _shapes.ttl)_results.csv ;
             for ((i=0; i<=5; i++)); do
                 echo \-\> $engine "experiment" $(basename "$subset" .ttl)-$(basename "$shape" _shapes.ttl) run $i;

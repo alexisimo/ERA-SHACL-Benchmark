@@ -1,6 +1,6 @@
 import os
 import argparse
-from maplib import Mapping
+from maplib import Model
 import time
 import rdflib
 import re
@@ -17,16 +17,16 @@ parser.add_argument('report', metavar='report', help='path to validation report 
 args = parser.parse_args()
 
 def maplib_validate(DATA, SHAPES, REPORT):
-    m = Mapping()
+    m = Model()
     # Start measuring the loading time
     load_tic = time.time()
-    m.read_triples(DATA, base_iri="http://example.net/")
+    m.read(DATA, base_iri="http://example.net/", parallel=True)
     load_tictoc = time.time() - load_tic
     print("Load time: ", load_tictoc)
 
     # Parse shacl shapes to rdflib graph 
     shape_graph = "urn:eu:shacl"
-    m.read_triples(SHAPES, graph=shape_graph, base_iri="http://example.net/")
+    m.read(SHAPES, graph=shape_graph, base_iri="http://example.net/")
 
     # SHACL validation block
     # Measuring the validation time
@@ -36,11 +36,11 @@ def maplib_validate(DATA, SHAPES, REPORT):
     print( "Validation time: ", tictoc)
 
     # Generate report
-    report.graph().write_ntriples(os.path.splitext(REPORT)[0]+".nt")
+    report.graph().write(REPORT, format="ntriples")
 
-    vres_graph = rdflib.Graph()
-    with open(os.path.splitext(REPORT)[0]+".nt", "r", encoding="utf-8") as file:
-        vres_graph.parse(data=file.read(),format="nt")    
-    vres_graph.serialize(format="turtle", destination=REPORT)
+#    vres_graph = rdflib.Graph()
+#    with open(os.path.splitext(REPORT)[0]+".nt", "r", encoding="utf-8") as file:
+#        vres_graph.parse(data=file.read(),format="nt")
+#    vres_graph.serialize(format="turtle", destination=REPORT)
 
 maplib_validate(args.data, args.shapes, args.report)
